@@ -1,0 +1,66 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1498
+X-Ratelimit-Reset: 1676025720
+Etag: W/"d86717a25b5f30289d29348967724b82"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: af53063b-d2f1-4b99-beff-b2de251721d5
+X-Runtime: 0.146450
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "transactions": [
+        {
+            "id": "txn_3NuWZw8zSY2LNMoNXgVwaR",
+            "account_id": "acc_fYpgX5Ytdxzexuf61lFmw",
+            "description": "Transaction description",
+            "operation_date": "2022-01-01T12:00:00Z",
+            "operation_type": "deposit",
+            "credit_debit": "debit",
+            "amount": {
+                "cents": 100,
+                "currency": "EUR"
+            },
+            "company_reference": "123",
+            "entity": {
+                "id": "pyo_4JgnTOvdXQWn81NK1bOhIY",
+                "type": "payment",
+                "ref": "https://api.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY"
+            },
+            "balance": {
+                "cents": 10000,
+                "currency": "EUR"
+            },
+            "third_party": {
+                "name": "Company S.L.",
+                "account_number": {
+                    "iban": "LT501243351241283711"
+                },
+                "bank": {
+                    "name": "Revolut Payments UAB",
+                    "bic": "REVOLT21"
+                }
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.sandbox.devengo.com/v1/accounts/acc_fYpgX5Ytdxzexuf61lFmw/transactions?page=1&page_size=100",
+        "first": "https://api.sandbox.devengo.com/v1/accounts/acc_fYpgX5Ytdxzexuf61lFmw/transactions?page=1&page_size=100",
+        "last": "https://api.sandbox.devengo.com/v1/accounts/acc_fYpgX5Ytdxzexuf61lFmw/transactions?page=1&page_size=100"
+    },
+    "meta": {
+        "pagination": {
+            "total_items": 1
+        }
+    }
+}

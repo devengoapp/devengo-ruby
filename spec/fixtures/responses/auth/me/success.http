@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1499
+X-Ratelimit-Reset: 1676024400
+Etag: W/"bf2b28b0e74d6ceaada3c393039cfbfc"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 9f1152ec-9f2c-4e80-b8f1-cbf883c845f1
+X-Runtime: 0.012056
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "manager": {
+        "id": "man_5MjSD4kLS3TszL0kbwPjPN",
+        "name": "Ana",
+        "locale": "es",
+        "email": "satya@microsoft.com",
+        "job_position": "product",
+        "status": "active"
+    }
+}

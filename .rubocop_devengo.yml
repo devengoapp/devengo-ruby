@@ -1,0 +1,89 @@
+---
+AllCops:
+  DisplayCopNames: true
+  NewCops: enable
+  SuggestExtensions: true
+  TargetRubyVersion: 2.7
+Gemspec/DependencyVersion:
+  Enabled: true
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/LineLength:
+  Max: 120
+Lint/DuplicateBranch:
+  Enabled: true
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+Lint/EmptyBlock:
+  Enabled: true
+Lint/EmptyClass:
+  Enabled: true
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+Lint/ToEnumArguments:
+  Enabled: true
+Lint/UnexpectedBlockArity:
+  Enabled: true
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+RSpec/AggregateExamples:
+  AddAggregateFailuresMetadata: true
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/BeEq:
+  Enabled: true
+RSpec/BeNil:
+  Enabled: true
+RSpec/ClassCheck:
+  Enabled: true
+RSpec/DuplicatedMetadata:
+  Enabled: true
+RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/NestedGroups:
+  Max: 4
+RSpec/NoExpectationExample:
+  Enabled: true
+RSpec/PendingWithoutReason:
+  Enabled: true
+RSpec/SortMetadata:
+  Enabled: true
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+Style/ArgumentsForwarding:
+  Enabled: true
+Style/ArrayCoercion:
+  Enabled: true
+Style/CollectionCompact:
+  Enabled: true
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/NegatedIfElseCondition:
+  Enabled: true
+Style/NilLambda:
+  Enabled: true
+Style/RedundantArgument:
+  Enabled: true
+Style/RequireOrder:
+  Enabled: true
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/SwapValues:
+  Enabled: true
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+require:
+  - test_prof/rubocop
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-rake

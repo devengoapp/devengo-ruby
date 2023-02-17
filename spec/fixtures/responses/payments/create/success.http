@@ -1,0 +1,48 @@
+HTTP/1.1 201 Created
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+Etag: W/"aaca10c8cbf6793354b78d32b7a6eeff"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 389ff002-e8ec-4a3d-aa9f-28215be312bb
+X-Runtime: 0.341013
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "payment": {
+        "id": "pyo_4JgnTOvdXQWn81NK1bOhIY",
+        "status": "confirmed",
+        "recipient": "Ana Devenguer",
+        "company_reference": "123",
+        "description": "March payout",
+        "amount": {
+            "cents": 12200,
+            "currency": "EUR"
+        },
+        "destination": {
+            "iban": "ES4131908294777999369566"
+        },
+        "account_id": "acc_7SZwPFdReAtDu8aNr1T5dE",
+        "instant": false,
+        "eta": "2023-02-09T11:14:17Z",
+        "created_at": "2023-02-09T11:14:07Z",
+        "processor": {
+            "network": "SEPA",
+            "scheme": "SCT-INST"
+        },
+        "error": null,
+        "links": {
+            "receipt": "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
+        },
+        "metadata": {
+            "example_key": "example_value"
+        }
+    }
+}

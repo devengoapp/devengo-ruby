@@ -1,0 +1,60 @@
+---
+name: ci
+"on":
+  pull_request:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    name: Ruby ${{ matrix.ruby-version }}
+    needs: [MarkdownLint, YamlLint, Rubocop]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ matrix.ruby-version }}
+      - run: bundle exec rspec
+    strategy:
+      matrix:
+        ruby-version:
+          - "2.7"
+          - "3.0"
+          - "3.1"
+          - "3.2"
+  MarkdownLint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Run markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v3.2.0
+        with:
+          config_file: .markdownlint.yaml
+          files: .
+  YamlLint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          strict: true
+  Rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+      - name: Rubocop
+        run: bundle exec rubocop --format progress

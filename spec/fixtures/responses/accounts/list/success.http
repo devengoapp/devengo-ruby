@@ -1,0 +1,55 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1499
+X-Ratelimit-Reset: 1675957920
+Etag: W/"4c95a420ffa0bfdf75d3cedd3ee131f1"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 930d21a6-fd00-4b89-a81e-66d2763faa40
+X-Runtime: 0.109951
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "accounts": [
+        {
+            "id": "acc_7SZwPFdReAtDu8aNr1T5dE",
+            "status": "created",
+            "name": "My account",
+            "number": "ES6621000418401234567891",
+            "bic": "PFSSESM1XXX",
+            "currency": "EUR",
+            "balance": {
+                "total": {
+                    "cents": 11000,
+                    "currency": "EUR"
+                },
+                "available": {
+                    "cents": 10000,
+                    "currency": "EUR"
+                }
+            },
+            "metadata": {
+                "example_key": "example_value"
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.sandbox.devengo.com/v1/accounts?page=1&page_size=100",
+        "first": "https://api.sandbox.devengo.com/v1/accounts?page=1&page_size=100",
+        "last": "https://api.sandbox.devengo.com/v1/accounts?page=1&page_size=100"
+    },
+    "meta": {
+        "pagination": {
+            "total_items": 1
+        }
+    }
+}

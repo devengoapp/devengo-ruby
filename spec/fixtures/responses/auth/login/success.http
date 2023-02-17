@@ -1,0 +1,21 @@
+HTTP/1.1 201 Created
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+Etag: W/"aaca10c8cbf6793354b78d32b7a6eeff"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 389ff002-e8ec-4a3d-aa9f-28215be312bb
+X-Runtime: 0.341013
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.TYzGzbjKUZAZ5JsTYB2MAgbRB0aJ5Xkyk7Pp43nehlI",
+    "refresh_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJFbXBsb3llZSIsInJlZnJlc2hfdG9rZW5faWQiOiJyZWZfM0J0WnRNcnJQYVdIZmViT2RzZGwxTyIsImV4cCI6IjE2NzYwNzQ5MjMifQ.IBteopKZINV4gBjtwPkTC946jW6PdX5QYmGt7e3oww0"
+}

@@ -1,0 +1,16 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/pkg/
+/spec/reports/
+/tmp/
+
+# Ignore IDEs files
+.idea
+*.iml
+out
+.vscode/
+
+# rspec failure tracking
+.rspec_status
