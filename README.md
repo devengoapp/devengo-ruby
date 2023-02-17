@@ -1,4 +1,4 @@
-# Devengo FINAC API Ruby client
+# Devengo API Ruby client
 
 [//]: # ([![ci]&#40;https://github.com/Nachooc5/devengo-ruby/actions/workflows/ci.yml/badge.svg?branch=main&#41;]&#40;https://github.com/Nachooc5/devengo-ruby/actions/workflows/ci.yml&#41;)
 
