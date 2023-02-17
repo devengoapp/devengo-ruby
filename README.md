@@ -1,10 +1,6 @@
 # Devengo API Ruby client
 
-[//]: # ([![ci]&#40;https://github.com/Nachooc5/devengo-ruby/actions/workflows/ci.yml/badge.svg?branch=main&#41;]&#40;https://github.com/Nachooc5/devengo-ruby/actions/workflows/ci.yml&#41;)
-
-[//]: # ([![Gem Version]&#40;https://badge.fury.io/rb/git.svg&#41;]&#40;https://badge.fury.io/rb/git&#41;)
-
-[//]: # ([![Depfu]&#40;https://badges.depfu.com/badges/53d67659d6a6d681e7513c94fd84e5ed/count.svg&#41;]&#40;https://depfu.com/repos/github/Nachooc5/devengo-ruby?project_id=37874&#41;)
+[![ci](https://github.com/devengoapp/devengo-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/devengoapp/devengo-ruby/actions/workflows/ci.yml)
 
 Ruby client for Devengo (cf. <https://docs.devengo.com/>)
 
