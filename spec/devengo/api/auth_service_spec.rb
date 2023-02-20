@@ -35,20 +35,20 @@ RSpec.describe Devengo::API::AuthService, :integration, type: :api do
                     path: "auth/me",
                     resource: "auth/me"
 
-    let!(:me) { auth_service.me }
+    let!(:member) { auth_service.me }
 
     it_behaves_like "builds correct request",
                     path: "auth/me"
 
-    it "me with expected data" do
-      expect(me).to be_a Devengo::Resources::Auth::Me
-      expect(instance_methods_count(me)).to eq 6
-      expect(me.id).to eq "man_5MjSD4kLS3TszL0kbwPjPN"
-      expect(me.name).to eq "Ana"
-      expect(me.locale).to eq "es"
-      expect(me.email).to eq "satya@microsoft.com"
-      expect(me.job_position).to eq "product"
-      expect(me.status).to eq "active"
+    it "member with expected data" do
+      expect(member).to be_a Devengo::Resources::Members::Member
+      expect(instance_methods_count(member)).to eq 7
+      expect(member.id).to eq "man_5MjSD4kLS3TszL0kbwPjPN"
+      expect(member.name).to eq "Ana"
+      expect(member.locale).to eq "es"
+      expect(member.email).to eq "satya@microsoft.com"
+      expect(member.job_position).to eq "product"
+      expect(member.status).to eq "active"
     end
   end
 end

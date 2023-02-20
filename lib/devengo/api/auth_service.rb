@@ -10,7 +10,7 @@ module Devengo
 
       def me(**opts)
         api_response = client.get(path: "auth/me", **opts)
-        Resources::Auth::Me.new(api_response: api_response, **api_response.body[:manager])
+        Resources::Members::Member.new(api_response: api_response, **api_response.body[:manager])
       end
     end
   end
