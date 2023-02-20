@@ -11,6 +11,7 @@ module Devengo
         map :amount
         map :company_reference
         map :third_party
+        map :internal
         map :created_at
 
         def initialize(api_response:, **attributes)
