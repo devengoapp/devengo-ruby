@@ -40,6 +40,14 @@ module Devengo
         def each(&block)
           @items.each(&block)
         end
+
+        def size
+          count
+        end
+
+        def empty?
+          @items.empty?
+        end
       end
     end
   end
