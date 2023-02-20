@@ -18,7 +18,7 @@ module Devengo
       @base_url = options[:base_url] || SANDBOX_URL
       @origin = options[:origin] || default_origin
       @proxy = options[:proxy]
-      @token = nil
+      @token = init_token(options[:token])
       @email = options[:email] || ENV.fetch("DEVENGO_USER", nil)
       @password = options[:password] || ENV.fetch("DEVENGO_PASSWORD", nil)
       @logger_enabled = options[:logger_enabled].nil? ? true : options[:logger_enabled]
@@ -87,6 +87,12 @@ module Devengo
 
     private def login!
       @token = auth.login(email: @email, password: @password).access_token
+    end
+
+    private def init_token(token)
+      return nil if token.nil?
+
+      Resources::Auth::Token.new(value: token)
     end
 
     private def default_origin
