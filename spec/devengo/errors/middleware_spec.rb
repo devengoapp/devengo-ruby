@@ -4,6 +4,7 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
   subject(:middleware) { described_class.new({}) }
 
   let(:env) { double }
+  let(:api_response) { double }
   let(:body) do
     {
       error: { message: "Resource not found", code: "account_not_found", type: "not_found_error" },
@@ -12,6 +13,7 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
   end
 
   before do
+    allow(env).to receive(:response).and_return(api_response)
     allow(env).to receive(:status).and_return(status)
     allow(env).to receive(:body).and_return(body)
   end
@@ -47,7 +49,7 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
   context "when is server error HTTP code" do
     [
       [rand(500..599), Devengo::Errors::Server],
-      [nil, Devengo::Errors::Base],
+      [nil, Devengo::Errors::Http],
     ].each do |status, exception_expected|
       describe status.to_s do
         let(:status) { status }
@@ -62,8 +64,19 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
     end
   end
 
+  context "with any HTTP error code" do
+    let(:status) { rand(400..599) }
+
+    it "exception contains api response" do
+      expect { middleware.send(:on_complete, env) }.to raise_error do |exception_raised|
+        expect(exception_raised).to be_a Devengo::Errors::Http
+        expect(exception_raised.api_response).to eq api_response
+      end
+    end
+  end
+
   context "when is a successful HTTP code" do
-    let(:status) { rand(200..299) }
+    let(:status) { rand(200..399) }
 
     it "not raise exception" do
       expect { middleware.send(:on_complete, env) }.not_to raise_error

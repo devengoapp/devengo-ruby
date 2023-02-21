@@ -2,14 +2,14 @@
 
 module Devengo
   module Errors
-    class Client < Base
+    class Client < Http
       attr_reader :code, :type
 
-      def initialize(error_response)
-        super error_response[:message]
+      def initialize(api_response:, client_error:)
+        super message: client_error[:message], api_response: api_response
 
-        @code = error_response[:code]
-        @type = error_response[:type]
+        @code = client_error[:code]
+        @type = client_error[:type]
       end
     end
   end

@@ -2,9 +2,15 @@
 
 module Devengo
   module Errors
-    class Base < StandardError; end
+    class Base < StandardError
+      def initialize(message:)
+        super message
+      end
+    end
   end
 end
+
+require_relative "http"
 
 require_relative "client"
 

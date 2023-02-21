@@ -9,41 +9,41 @@ module Devengo
         @env = env
 
         case env.status
-        when (200..300)
+        when (200..399)
           nil
         when 400
-          raise BadRequest, client_error_params
+          raise BadRequest.new(**client_error_params)
         when 401
-          raise Unauthorized, client_error_params
+          raise Unauthorized.new(**client_error_params)
         when 403
-          raise Forbidden, client_error_params
+          raise Forbidden.new(**client_error_params)
         when 404
-          raise NotFound, client_error_params
+          raise NotFound.new(**client_error_params)
         when 407
-          raise ProxyAuth, client_error_params
+          raise ProxyAuth.new(**client_error_params)
         when 409
-          raise Conflict, client_error_params
+          raise Conflict.new(**client_error_params)
         when 410
-          raise Gone, client_error_params
+          raise Gone.new(**client_error_params)
         when 422
-          raise UnprocessableEntity, client_error_params
+          raise UnprocessableEntity.new(**client_error_params)
         when 429
-          raise TooManyRequests, client_error_params
-        when (400...500)
-          raise Client, client_error_params
-        when (500...600)
-          raise Server, base_error_params
+          raise TooManyRequests.new(**client_error_params)
+        when (400..499)
+          raise Client.new(**client_error_params)
+        when (500..599)
+          raise Server.new(**http_error_params)
         else
-          raise Base, base_error_params
+          raise Http.new(**http_error_params)
         end
       end
 
       private def client_error_params
-        @env.body[:error].to_h
+        { api_response: @env.response, client_error: @env.body[:error].to_h }
       end
 
-      private def base_error_params
-        @env.body[:exception] || @env.body
+      private def http_error_params
+        { api_response: @env.response, message: @env.body[:exception] || @env.body }
       end
     end
   end

@@ -2,6 +2,6 @@
 
 module Devengo
   module Errors
-    class Server < Base; end
+    class Server < Http; end
   end
 end
