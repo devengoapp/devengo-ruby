@@ -13,6 +13,7 @@ module Devengo
         map :amount
         map :destination
         map :instant
+        map :internal
         map :eta
         map :created_at
         map :processor

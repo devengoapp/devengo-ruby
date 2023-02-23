@@ -12,7 +12,7 @@ RSpec.describe Devengo::API::IncomingPaymentsService, :integration, type: :api d
       expect(incoming_payment.status).to eq "confirmed"
       expect(incoming_payment.description).to eq "Incoming payment description"
       expect(incoming_payment.company_reference).to eq "123"
-      expect(incoming_payment.internal).to be_falsey
+      expect(incoming_payment.internal).to be false
       expect(incoming_payment.amount).to be_a Devengo::Resources::Shared::Money
       expect(incoming_payment.amount.cents).to eq 10_000
       expect(incoming_payment.amount.currency).to eq "EUR"

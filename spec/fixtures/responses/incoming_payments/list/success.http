@@ -25,6 +25,7 @@ Via: 1.1 vegur
             "account_id": "acc_7SZwPFdReAtDu8aNr1T5dE",
             "status": "confirmed",
             "description": "Incoming payment description",
+            "internal": false,
             "amount": {
                 "cents": 10000,
                 "currency": "EUR"
