@@ -22,7 +22,7 @@ module Devengo
                 third_party: Shared::ThirdParty.new(**attributes[:third_party]),
                 balance: Shared::Money.new(**attributes[:balance]),
                 amount: Shared::Money.new(**attributes[:amount]),
-                entity: Entity.new(**attributes[:entity])
+                entity: Entity.init_nullable(attributes[:entity])
         end
       end
     end
