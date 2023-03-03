@@ -9,7 +9,6 @@ module Devengo
         map :status
         map :name
         map :number
-        map :bic
         map :currency
         map :metadata
         map :balance
