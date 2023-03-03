@@ -6,13 +6,14 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
   shared_examples "accounts expects" do |parameters|
     it "account with expected data" do
       expect(account).to be_a Devengo::Resources::Accounts::Account
-      expect(instance_methods_count(account)).to eq 8
+      expect(instance_methods_count(account)).to eq 9
       expect(account.id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(account.status).to eq "created"
       expect(account.name).to eq "My account"
       expect(account.number).to eq parameters[:account_number]
       expect(account.bic).to eq parameters[:bic]
       expect(account.currency).to eq "EUR"
+      expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
       expect(account.balance.available).to be_a Devengo::Resources::Shared::Money
       expect(account.balance.available.cents).to eq parameters[:available_cents]
@@ -21,6 +22,11 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.balance.total.cents).to eq parameters[:total_cents]
       expect(account.balance.total.currency).to eq "EUR"
       expect(account.metadata).to eq parameters[:metadata]
+    end
+
+    it "account bank with expected data", if: parameters[:bank] != NilClass do
+      expect(account.bank.bic).to eq "PFSSESM1XXX"
+      expect(account.bank.name).to eq "Prepaid Financial Services Limited, S.E"
     end
   end
 
@@ -35,10 +41,11 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     path: "accounts/acc_7SZwPFdReAtDu8aNr1T5dE"
 
     it_behaves_like "accounts expects",
-                    account_number: "ES6621000418401234567891",
+                    account_number: "ES8967130002000000025500",
                     bic: "PFSSESM1XXX",
                     available_cents: 10_000,
                     total_cents: 11_000,
+                    bank: Devengo::Resources::Shared::ThirdPartyBank,
                     metadata: { example_key: "example_value" }
   end
 
@@ -54,10 +61,11 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     path: "accounts"
 
     it_behaves_like "accounts expects",
-                    account_number: "ES6621000418401234567891",
+                    account_number: "ES8967130002000000025500",
                     bic: "PFSSESM1XXX",
                     available_cents: 10_000,
                     total_cents: 11_000,
+                    bank: Devengo::Resources::Shared::ThirdPartyBank,
                     metadata: { example_key: "example_value" }
 
     it "return expected element" do
@@ -86,6 +94,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     bic: nil,
                     available_cents: 0,
                     total_cents: 0,
+                    bank: nil.class,
                     metadata: {}
   end
 
