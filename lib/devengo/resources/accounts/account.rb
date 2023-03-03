@@ -5,6 +5,7 @@ module Devengo
     module Accounts
       class Account < Shared::BaseResponse
         map :id
+        map :bank
         map :status
         map :name
         map :number
@@ -14,7 +15,10 @@ module Devengo
         map :balance
 
         def initialize(api_response:, **attributes)
-          super api_response: api_response, **attributes, balance: Balance.new(**attributes[:balance])
+          super api_response: api_response,
+                **attributes,
+                balance: Balance.new(**attributes[:balance]),
+                bank: Shared::ThirdPartyBank.init_nullable(attributes[:bank])
         end
       end
     end

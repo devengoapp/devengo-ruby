@@ -23,6 +23,7 @@ Vary: Origin
         "number": null,
         "bic": null,
         "currency": "EUR",
+        "bank": null,
         "balance": {
             "total": {
                 "cents": 0,
