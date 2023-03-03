@@ -21,7 +21,6 @@ Vary: Origin
         "status": "created",
         "name": "My account",
         "number": null,
-        "bic": null,
         "currency": "EUR",
         "bank": null,
         "balance": {

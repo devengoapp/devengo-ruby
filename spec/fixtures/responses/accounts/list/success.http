@@ -25,7 +25,6 @@ Via: 1.1 vegur
             "status": "created",
             "name": "My account",
             "number": "ES8967130002000000025500",
-            "bic": "PFSSESM1XXX",
             "currency": "EUR",
             "bank": {
                 "name": "Prepaid Financial Services Limited, S.E",
