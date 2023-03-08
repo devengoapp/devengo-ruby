@@ -45,6 +45,16 @@ Via: 1.1 vegur
         "links": {
             "receipt": "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
         },
+        "third_party": {
+            "name": "Ana Devenguer",
+            "account_number": {
+                "iban": "ES4131908294777999369566"
+            },
+            "bank": {
+                "name": "Banco de Sabadell, S.A.",
+                "bic": "BSABESBBXXX"
+            }
+        },
         "metadata": {
             "example_key": "example_value"
         }
