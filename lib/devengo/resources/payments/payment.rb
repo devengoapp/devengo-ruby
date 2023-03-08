@@ -19,6 +19,7 @@ module Devengo
         map :processor
         map :error
         map :links
+        map :third_party
         map :metadata
 
         def initialize(api_response:, **attributes)
@@ -28,6 +29,7 @@ module Devengo
                 destination: Destination.new(**attributes[:destination]),
                 processor: Processor.new(**attributes[:processor]),
                 error: Error.init_nullable(attributes[:error]),
+                third_party: Shared::ThirdParty.new(**attributes[:third_party]),
                 links: Links.init_nullable(attributes[:links])
         end
       end

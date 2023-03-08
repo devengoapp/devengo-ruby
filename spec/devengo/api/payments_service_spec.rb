@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
   shared_examples "payment expects" do
     it "payment with expected data" do
       expect(payment).to be_a Devengo::Resources::Payments::Payment
-      expect(instance_methods_count(payment)).to eq 16
+      expect(instance_methods_count(payment)).to eq 17
       expect(payment.id).to eq "pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(payment.status).to eq "confirmed"
       expect(payment.recipient).to eq "Ana Devenguer"
@@ -28,6 +28,13 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.error).to be_nil
       expect(payment.links).to be_a Devengo::Resources::Payments::Links
       expect(payment.links.receipt).to eq "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
+      expect(payment.third_party).to be_a Devengo::Resources::Shared::ThirdParty
+      expect(payment.third_party.name).to eq "Ana Devenguer"
+      expect(payment.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdPartyAccountNumber
+      expect(payment.third_party.account_number.iban).to eq "ES4131908294777999369566"
+      expect(payment.third_party.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
+      expect(payment.third_party.bank.name).to eq "Banco de Sabadell, S.A."
+      expect(payment.third_party.bank.bic).to eq "BSABESBBXXX"
       expect(payment.metadata).to eq example_key: "example_value"
     end
   end
