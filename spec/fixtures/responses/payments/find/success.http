@@ -22,7 +22,7 @@ Via: 1.1 vegur
     "payment": {
         "id": "pyo_4JgnTOvdXQWn81NK1bOhIY",
         "status": "confirmed",
-        "recipient": "Ana Devenguer",
+        "recipient": "Ana Devenger",
         "company_reference": "123",
         "description": "March payout",
         "amount": {
@@ -46,7 +46,7 @@ Via: 1.1 vegur
             "receipt": "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
         },
         "third_party": {
-            "name": "Ana Devenguer",
+            "name": "Ana Devenger",
             "account": {
                 "identifiers": [
                     {
