@@ -11,7 +11,7 @@ module Devengo
         map :listened_events
         map :secret
 
-        def initialize(api_response: nil, **attributes)
+        def initialize(api_response:, **attributes)
           super api_response: api_response, **attributes, secret: attributes[:secret]
         end
       end

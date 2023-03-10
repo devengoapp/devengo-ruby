@@ -3,36 +3,18 @@
 module Devengo
   module Resources
     module Shared
-      class ThirdPartyIdentifierCollection < Base
-        include Enumerable
-
-        map :items
-
+      class ThirdPartyIdentifierCollection < BaseCollection
         def initialize(identifiers)
-          identifiers_array = []
+          super items: identifiers.map { |identifier| raw_identifier_parser(identifier) }
+        end
 
-          identifiers.each do |identifier|
-            case identifier[:type]
-            when "iban"
-              identifiers_array << ThirdPartyIdentifierIban.new(identifier)
-            when "ukscan"
-              identifiers_array << ThirdPartyIdentifierUkScan.new(identifier)
-            end
+        private def raw_identifier_parser(identifier)
+          case identifier[:type]
+          when "iban"
+            ThirdPartyIdentifierIban.new(**identifier)
+          when "ukscan"
+            ThirdPartyIdentifierUkScan.new(**identifier)
           end
-
-          super items: identifiers_array
-        end
-
-        def each(&block)
-          @items.each(&block)
-        end
-
-        def size
-          count
-        end
-
-        def empty?
-          @items.empty?
         end
       end
     end

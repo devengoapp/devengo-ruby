@@ -15,7 +15,7 @@ module Devengo
         map :balance
         map :created_at
 
-        def initialize(api_response: nil, **attributes)
+        def initialize(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
                 identifiers: Shared::ThirdPartyIdentifierCollection.new(attributes[:identifiers]),

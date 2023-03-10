@@ -14,7 +14,7 @@ module Devengo
         map :internal
         map :created_at
 
-        def initialize(api_response: nil, **attributes)
+        def initialize(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
                 amount: Shared::Money.new(**attributes[:amount]),
