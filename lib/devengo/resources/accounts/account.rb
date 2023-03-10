@@ -13,6 +13,7 @@ module Devengo
         map :currency
         map :metadata
         map :balance
+        map :created_at
 
         def initialize(api_response:, **attributes) # rubocop:disable Metrics/MethodLength
           identifiers = []

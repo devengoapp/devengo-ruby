@@ -22,6 +22,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.balance.total.cents).to eq parameters[:total_cents]
       expect(account.balance.total.currency).to eq "EUR"
       expect(account.metadata).to eq parameters[:metadata]
+      expect(account.created_at).to eq "2023-01-01T12:00:00Z"
     end
 
     it "account bank with expected data", if: parameters[:bank] != NilClass do
