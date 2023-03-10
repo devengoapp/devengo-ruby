@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
   shared_examples "accounts expects" do |parameters|
     it "account with expected data" do
       expect(account).to be_a Devengo::Resources::Accounts::Account
-      expect(instance_methods_count(account)).to eq 8
+      expect(instance_methods_count(account)).to eq 9
       expect(account.id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(account.status).to eq "created"
       expect(account.name).to eq "My account"
@@ -21,6 +21,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.balance.total.cents).to eq parameters[:total_cents]
       expect(account.balance.total.currency).to eq "EUR"
       expect(account.metadata).to eq parameters[:metadata]
+      expect(account.created_at).to eq "2023-01-01T12:00:00Z"
     end
 
     it "account bank with expected data", if: parameters[:bank] != NilClass do
