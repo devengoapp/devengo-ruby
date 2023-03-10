@@ -11,7 +11,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.status).to eq "created"
       expect(account.name).to eq "My account"
       expect(account.number).to eq parameters[:account_number]
-      expect(account.identifiers).to match_array parameters[:identifiers]
+      expect(account.identifiers).to contain_exactly(Devengo::Resources::Shared::ThirdPartyIdentifierIban)
       expect(account.currency).to eq "EUR"
       expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
@@ -48,7 +48,6 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: "ES8967130002000000025500",
-                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
@@ -68,7 +67,6 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: "ES8967130002000000025500",
-                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
@@ -97,7 +95,6 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: nil,
-                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 0,
                     total_cents: 0,
                     bank: nil.class,

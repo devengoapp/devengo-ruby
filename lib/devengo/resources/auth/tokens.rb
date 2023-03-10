@@ -7,7 +7,7 @@ module Devengo
         map :token, :access_token
         map :refresh_token
 
-        def initialize(api_response:, **attributes)
+        def initialize(api_response: nil, **attributes)
           super(
             api_response: api_response,
             **attributes,

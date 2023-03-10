@@ -15,15 +15,15 @@ module Devengo
         map :balance
         map :created_at
 
-        def initialize(api_response:, **attributes) # rubocop:disable Metrics/MethodLength
+        def initialize(api_response: nil, **attributes) # rubocop:disable Metrics/MethodLength
           identifiers = []
 
           attributes[:identifiers].each do |identifier|
             case identifier[:type]
             when "iban"
-              identifiers << Shared::AccountIdentifierIban.init_nullable(identifier)
+              identifiers << Shared::ThirdPartyIdentifierIban.new(identifier)
             when "ukscan"
-              identifiers << Shared::AccountIdentifierUkScan.init_nullable(identifier)
+              identifiers << Shared::ThirdPartyIdentifierUkScan.new(identifier)
             end
           end
 

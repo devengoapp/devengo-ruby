@@ -13,7 +13,7 @@ module Devengo
         map :event_name
         map :response
 
-        def initialize(api_response:, **attributes)
+        def initialize(api_response: nil, **attributes)
           super api_response: api_response, **attributes, response: Response.new(**attributes[:response])
         end
       end

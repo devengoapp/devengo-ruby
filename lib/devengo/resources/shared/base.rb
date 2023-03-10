@@ -30,6 +30,7 @@ module Devengo
   end
 end
 
+require_relative "base_collection"
 require_relative "base_response"
 require_relative "base_response_collection"
 
@@ -57,11 +58,11 @@ require_relative "../webhook_requests/response"
 require_relative "../webhook_requests/webhook_request"
 require_relative "../webhooks/collection"
 require_relative "../webhooks/webhook"
-require_relative "account_identifier_iban"
-require_relative "account_identifier_uk_scan"
 require_relative "money"
 require_relative "pagination"
 require_relative "third_party"
 require_relative "third_party_account"
 require_relative "third_party_account_number"
 require_relative "third_party_bank"
+require_relative "third_party_identifier_iban"
+require_relative "third_party_identifier_uk_scan"

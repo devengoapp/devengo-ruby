@@ -3,27 +3,17 @@
 module Devengo
   module Resources
     module Shared
-      class BaseResponseCollection < Base
-        include Enumerable
-
+      class BaseResponseCollection < BaseCollection
         map :api_response
-        map :attributes_collection
-        map :items
         map :pagination
         map :meta
 
         def initialize(api_response:, item_klass:, raw_collection: [])
           super api_response: api_response,
                 raw_collection: raw_collection,
-                items: parse_raw_collection(raw_collection, item_klass, api_response),
+                item_klass: item_klass,
                 pagination: init_pagination(api_response),
                 meta: api_response.body[:meta]
-        end
-
-        private def parse_raw_collection(raw_collection, item_klass, api_response)
-          raw_collection.map do |attributes_item|
-            item_klass.new(api_response: api_response, **attributes_item)
-          end
         end
 
         private def init_pagination(api_response)
@@ -35,18 +25,6 @@ module Devengo
             **api_response_body[:links],
             total_items: api_response_body.dig(:meta, :pagination, :total_items)
           )
-        end
-
-        def each(&block)
-          @items.each(&block)
-        end
-
-        def size
-          count
-        end
-
-        def empty?
-          @items.empty?
         end
       end
     end

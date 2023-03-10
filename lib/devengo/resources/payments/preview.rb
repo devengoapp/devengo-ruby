@@ -8,7 +8,7 @@ module Devengo
         map :eta
         map :processor
 
-        def initialize(api_response:, **attributes)
+        def initialize(api_response: nil, **attributes)
           super api_response: api_response, **attributes, processor: Processor.new(**attributes[:processor])
         end
       end

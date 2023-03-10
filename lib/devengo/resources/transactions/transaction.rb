@@ -16,7 +16,7 @@ module Devengo
         map :entity
         map :third_party
 
-        def initialize(api_response:, **attributes)
+        def initialize(api_response: nil, **attributes)
           super api_response: api_response,
                 **attributes,
                 third_party: Shared::ThirdParty.new(**attributes[:third_party]),

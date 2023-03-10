@@ -3,7 +3,7 @@
 module Devengo
   module Resources
     module Shared
-      class AccountIdentifierIban < Shared::Base
+      class ThirdPartyIdentifierIban < Shared::Base
         map :type
         map :iban
       end
