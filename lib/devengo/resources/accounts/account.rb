@@ -9,6 +9,7 @@ module Devengo
         map :status
         map :name
         map :number
+        map :identifiers
         map :currency
         map :metadata
         map :balance
@@ -17,6 +18,7 @@ module Devengo
         def initialize(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
+                identifiers: Shared::ThirdPartyIdentifierCollection.new(attributes[:identifiers]),
                 balance: Balance.new(**attributes[:balance]),
                 bank: Shared::ThirdPartyBank.init_nullable(attributes[:bank])
         end

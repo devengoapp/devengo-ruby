@@ -3,12 +3,9 @@
 module Devengo
   module Resources
     module Shared
-      class BaseResponseCollection < Base
-        include Enumerable
-
+      class BaseResponseCollection < BaseCollection
+        map :raw_collection
         map :api_response
-        map :attributes_collection
-        map :items
         map :pagination
         map :meta
 
@@ -35,18 +32,6 @@ module Devengo
             **api_response_body[:links],
             total_items: api_response_body.dig(:meta, :pagination, :total_items)
           )
-        end
-
-        def each(&block)
-          @items.each(&block)
-        end
-
-        def size
-          count
-        end
-
-        def empty?
-          @items.empty?
         end
       end
     end

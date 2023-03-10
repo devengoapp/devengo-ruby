@@ -9,7 +9,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(instance_methods_count(payment)).to eq 17
       expect(payment.id).to eq "pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(payment.status).to eq "confirmed"
-      expect(payment.recipient).to eq "Ana Devenguer"
+      expect(payment.recipient).to eq "Ana Devenger"
       expect(payment.company_reference).to eq "123"
       expect(payment.description).to eq "March payout"
       expect(payment.amount).to be_a Devengo::Resources::Shared::Money
@@ -29,7 +29,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.links).to be_a Devengo::Resources::Payments::Links
       expect(payment.links.receipt).to eq "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
       expect(payment.third_party).to be_a Devengo::Resources::Shared::ThirdParty
-      expect(payment.third_party.name).to eq "Ana Devenguer"
+      expect(payment.third_party.name).to eq "Ana Devenger"
       expect(payment.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdPartyAccountNumber
       expect(payment.third_party.account_number.iban).to eq "ES4131908294777999369566"
       expect(payment.third_party.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
@@ -88,7 +88,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
         metadata: { example_key: "example_value" },
         account_id: "acc_fYpgX5Ytdxzexuf61lFmw",
         company_reference: "123",
-        recipient: "Ana Devenguer",
+        recipient: "Ana Devenger",
         description: "March payout"
       )
     end
@@ -102,7 +102,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
                       metadata: { example_key: "example_value" },
                       account_id: "acc_fYpgX5Ytdxzexuf61lFmw",
                       company_reference: "123",
-                      recipient: "Ana Devenguer",
+                      recipient: "Ana Devenger",
                       description: "March payout",
                     }
 
@@ -122,7 +122,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
         metadata: { example_key: "example_value" },
         account_id: "acc_fYpgX5Ytdxzexuf61lFmw",
         company_reference: "123",
-        recipient: "Ana Devenguer",
+        recipient: "Ana Devenger",
         description: "March payout"
       )
     end
@@ -136,7 +136,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
                       metadata: { example_key: "example_value" },
                       account_id: "acc_fYpgX5Ytdxzexuf61lFmw",
                       company_reference: "123",
-                      recipient: "Ana Devenguer",
+                      recipient: "Ana Devenger",
                       description: "March payout",
                     }
 

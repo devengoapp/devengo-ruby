@@ -6,12 +6,17 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
   shared_examples "accounts expects" do |parameters|
     it "account with expected data" do
       expect(account).to be_a Devengo::Resources::Accounts::Account
-      expect(instance_methods_count(account)).to eq 9
+      expect(instance_methods_count(account)).to eq 10
       expect(account.id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(account.status).to eq "created"
       expect(account.name).to eq "My account"
       expect(account.number).to eq parameters[:account_number]
+      expect(account.identifiers).to contain_exactly(Devengo::Resources::Shared::ThirdPartyIdentifierIban)
       expect(account.currency).to eq "EUR"
+      expect(account.identifiers.count).to eq 1
+      expect(account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdPartyIdentifierIban
+      expect(account.identifiers.first.type).to eq "iban"
+      expect(account.identifiers.first.iban).to eq parameters[:account_number]
       expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
       expect(account.balance.available).to be_a Devengo::Resources::Shared::Money

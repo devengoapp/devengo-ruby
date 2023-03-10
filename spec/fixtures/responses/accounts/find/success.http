@@ -25,6 +25,12 @@ Via: 1.1 vegur
         "created_at": "2023-01-01T12:00:00Z",
         "name": "My account",
         "number": "ES8967130002000000025500",
+        "identifiers": [
+            {
+                "type": "iban",
+                "iban": "ES8967130002000000025500"
+            }
+        ],
         "currency": "EUR",
         "bank": {
             "name": "Prepaid Financial Services Limited, S.E",
