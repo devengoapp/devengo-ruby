@@ -14,6 +14,7 @@ Cache-Control: max-age=0, private, must-revalidate
 X-Request-Id: c1f2cabd-ea2d-46c7-9adc-239802f7f757
 X-Runtime: 0.261720
 Vary: Origin
+
 {
     "account": {
         "id": "acc_7SZwPFdReAtDu8aNr1T5dE",
