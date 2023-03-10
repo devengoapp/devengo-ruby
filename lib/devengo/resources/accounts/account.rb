@@ -12,6 +12,7 @@ module Devengo
         map :currency
         map :metadata
         map :balance
+        map :created_at
 
         def initialize(api_response:, **attributes)
           super api_response: api_response,
