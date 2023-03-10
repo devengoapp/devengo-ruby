@@ -29,7 +29,7 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdPartyAccountNumber
       expect(transaction.third_party.account).to be_a Devengo::Resources::Shared::ThirdPartyAccount
       expect(transaction.third_party.account.identifiers.count).to eq 1
-      expect(transaction.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdPartyIdentifierIban
+      expect(transaction.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdPartyIdentifierIban # rubocop:disable Layout/LineLength
       expect(transaction.third_party.account.identifiers.first.type).to eq "iban"
       expect(transaction.third_party.account.identifiers.first.iban).to eq "LT501243351241283711"
       expect(transaction.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
