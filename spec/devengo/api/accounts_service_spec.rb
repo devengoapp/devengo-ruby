@@ -45,8 +45,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
-                    metadata: { example_key: "example_value" },
-                    created_at: "2023-01-01T12:00:00Z"
+                    metadata: { example_key: "example_value" }
   end
 
   describe "list accounts" do
@@ -65,8 +64,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
-                    metadata: { example_key: "example_value" },
-                    created_at: "2023-01-01T12:00:00Z"
+                    metadata: { example_key: "example_value" }
 
     it "return expected element" do
       expect(accounts).to be_a Devengo::Resources::Accounts::Collection
@@ -94,8 +92,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     available_cents: 0,
                     total_cents: 0,
                     bank: nil.class,
-                    metadata: {},
-                    created_at: "2023-01-01T12:00:00Z"
+                    metadata: {}
   end
 
   describe "close account" do
