@@ -44,6 +44,18 @@ Via: 1.1 vegur
         },
         "third_party": {
             "name": "Ana Devenguer",
+            "account": {
+                "identifiers": [
+                    {
+                        "type": "iban",
+                        "iban": "ES4131908294777999369566"
+                    }
+                ],
+                "bank": {
+                    "name": "Banco de Sabadell, S.A.",
+                    "bic": "BSABESBBXXX"
+                }
+            },
             "account_number": {
                 "iban": "ES4131908294777999369566"
             },

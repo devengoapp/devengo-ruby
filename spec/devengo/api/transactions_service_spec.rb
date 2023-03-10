@@ -27,6 +27,13 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.third_party).to be_a Devengo::Resources::Shared::ThirdParty
       expect(transaction.third_party.name).to eq "Company S.L."
       expect(transaction.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdPartyAccountNumber
+      expect(transaction.third_party.account).to be_a Devengo::Resources::Shared::ThirdPartyAccount
+      expect(transaction.third_party.account.identifiers[0]).to be_a Devengo::Resources::Shared::AccountIdentifierIban
+      expect(transaction.third_party.account.identifiers[0].type).to eq "iban"
+      expect(transaction.third_party.account.identifiers[0].iban).to eq "LT501243351241283711"
+      expect(transaction.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
+      expect(transaction.third_party.account.bank.name).to eq "Revolut Payments UAB"
+      expect(transaction.third_party.account.bank.bic).to eq "REVOLT21"
       expect(transaction.third_party.account_number.iban).to eq "LT501243351241283711"
       expect(transaction.third_party.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
       expect(transaction.third_party.bank.name).to eq "Revolut Payments UAB"

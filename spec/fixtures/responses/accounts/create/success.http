@@ -21,6 +21,12 @@ Vary: Origin
         "status": "created",
         "name": "My account",
         "number": null,
+        "identifiers": [
+            {
+                "type": "iban",
+                "iban": null
+            }
+        ],
         "currency": "EUR",
         "bank": null,
         "balance": {

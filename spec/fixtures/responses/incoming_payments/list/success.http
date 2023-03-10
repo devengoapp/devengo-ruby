@@ -33,6 +33,18 @@ Via: 1.1 vegur
             "company_reference": "123",
             "third_party": {
                 "name": "Company S.L.",
+                "account": {
+                    "identifiers": [
+                        {
+                            "type": "iban",
+                            "iban": "LT501243351241283711"
+                        }
+                    ],
+                    "bank": {
+                        "name": "Revolut Payments UAB",
+                        "bic": "REVOLT21"
+                    }
+                },
                 "account_number": {
                     "iban": "LT501243351241283711"
                 },

@@ -6,11 +6,12 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
   shared_examples "accounts expects" do |parameters|
     it "account with expected data" do
       expect(account).to be_a Devengo::Resources::Accounts::Account
-      expect(instance_methods_count(account)).to eq 8
+      expect(instance_methods_count(account)).to eq 9
       expect(account.id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(account.status).to eq "created"
       expect(account.name).to eq "My account"
       expect(account.number).to eq parameters[:account_number]
+      expect(account.identifiers).to match_array parameters[:identifiers]
       expect(account.currency).to eq "EUR"
       expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
@@ -27,6 +28,11 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.bank.bic).to eq "PFSSESM1XXX"
       expect(account.bank.name).to eq "Prepaid Financial Services Limited, S.E"
     end
+
+    it "account identifiers with expected data", if: parameters[:identifiers] != NilClass do
+      expect(account.identifiers[0].type).to eq "iban"
+      expect(account.identifiers[0].iban).to eq parameters[:account_number]
+    end
   end
 
   describe "find account" do
@@ -41,6 +47,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: "ES8967130002000000025500",
+                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
@@ -60,6 +67,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: "ES8967130002000000025500",
+                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdPartyBank,
@@ -88,6 +96,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
 
     it_behaves_like "accounts expects",
                     account_number: nil,
+                    identifiers: [Devengo::Resources::Shared::AccountIdentifierIban],
                     available_cents: 0,
                     total_cents: 0,
                     bank: nil.class,
