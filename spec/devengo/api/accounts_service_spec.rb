@@ -13,6 +13,10 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.number).to eq parameters[:account_number]
       expect(account.identifiers).to contain_exactly(Devengo::Resources::Shared::ThirdPartyIdentifierIban)
       expect(account.currency).to eq "EUR"
+      expect(account.identifiers.count).to eq 1
+      expect(account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdPartyIdentifierIban
+      expect(account.identifiers.first.type).to eq "iban"
+      expect(account.identifiers.first.iban).to eq parameters[:account_number]
       expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
       expect(account.balance.available).to be_a Devengo::Resources::Shared::Money
@@ -28,11 +32,6 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
     it "account bank with expected data", if: parameters[:bank] != NilClass do
       expect(account.bank.bic).to eq "PFSSESM1XXX"
       expect(account.bank.name).to eq "Prepaid Financial Services Limited, S.E"
-    end
-
-    it "account identifiers with expected data", if: parameters[:identifiers] != NilClass do
-      expect(account.identifiers[0].type).to eq "iban"
-      expect(account.identifiers[0].iban).to eq parameters[:account_number]
     end
   end
 

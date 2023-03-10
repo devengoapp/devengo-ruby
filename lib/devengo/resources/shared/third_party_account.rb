@@ -7,21 +7,10 @@ module Devengo
         map :identifiers
         map :bank
 
-        def initialize(**attributes) # rubocop:disable Metrics/MethodLength
-          identifiers = []
-
-          attributes[:identifiers].each do |identifier|
-            case identifier[:type]
-            when "iban"
-              identifiers << Shared::ThirdPartyIdentifierIban.new(identifier)
-            when "ukscan"
-              identifiers << Shared::ThirdPartyIdentifierUkScan.new(identifier)
-            end
-          end
-
+        def initialize(**attributes)
           super(
             **attributes,
-            identifiers: identifiers,
+            identifiers: ThirdPartyIdentifierCollection.new(attributes[:identifiers]),
             bank: ThirdPartyBank.init_nullable(attributes[:bank])
           )
         end
