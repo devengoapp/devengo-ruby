@@ -7,11 +7,11 @@ module Devengo
         map :available
         map :total
 
-        def initialize(**attributes)
+        def self.from_raw(**attributes)
           super(
             **attributes,
-            available: Shared::Money.new(**attributes[:available]),
-            total: Shared::Money.new(**attributes[:total])
+            available: Shared::Money.from_raw(**attributes[:available]),
+            total: Shared::Money.from_raw(**attributes[:total])
           )
         end
       end

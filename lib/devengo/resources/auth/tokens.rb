@@ -7,12 +7,12 @@ module Devengo
         map :token, :access_token
         map :refresh_token
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super(
             api_response: api_response,
             **attributes,
-            token: Token.new(value: attributes[:token]),
-            refresh_token: Token.new(value: attributes[:refresh_token])
+            token: Token.from_raw(value: attributes[:token]),
+            refresh_token: Token.from_raw(value: attributes[:refresh_token])
           )
         end
       end

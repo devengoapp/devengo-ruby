@@ -14,11 +14,11 @@ module Devengo
         map :internal
         map :created_at
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
-                amount: Shared::Money.new(**attributes[:amount]),
-                third_party: Shared::ThirdParties::ThirdParty.new(**attributes[:third_party])
+                amount: Shared::Money.from_raw(**attributes[:amount]),
+                third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party])
         end
       end
     end

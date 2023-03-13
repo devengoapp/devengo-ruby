@@ -20,9 +20,13 @@ module Devengo
           end
         end
 
-        def self.init_nullable(attributes)
+        def self.from_raw_nullable(attributes)
           return nil if attributes.nil?
 
+          from_raw(**attributes)
+        end
+
+        def self.from_raw(**attributes)
           new(**attributes)
         end
       end

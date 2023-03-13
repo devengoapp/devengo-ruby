@@ -94,7 +94,7 @@ module Devengo
     private def init_token(token)
       return nil if token.nil?
 
-      Resources::Auth::Token.new(value: token)
+      Resources::Auth::Token.from_raw(value: token)
     end
 
     private def default_origin

@@ -6,7 +6,7 @@ module Devengo
       class BaseResponse < Base
         map :api_response
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super api_response: api_response, **attributes
         end
       end

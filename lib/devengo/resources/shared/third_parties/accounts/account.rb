@@ -9,11 +9,11 @@ module Devengo
             map :identifiers
             map :bank
 
-            def initialize(**attributes)
+            def self.from_raw(**attributes)
               super(
                 **attributes,
-                identifiers: ThirdParties::Identifiers::Collection.new(attributes[:identifiers]),
-                bank: ThirdParties::Bank.init_nullable(attributes[:bank])
+                identifiers: ThirdParties::Identifiers::Collection.from_raw(attributes[:identifiers]),
+                bank: ThirdParties::Bank.from_raw_nullable(attributes[:bank])
               )
             end
           end

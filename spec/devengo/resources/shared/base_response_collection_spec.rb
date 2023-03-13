@@ -2,9 +2,8 @@
 
 RSpec.describe Devengo::Resources::Shared::BaseResponseCollection, :unit, type: :resource do
   subject(:base_response_collection) do
-    described_class.new(
+    described_class.from_raw(
       api_response: api_response,
-      item_klass: Devengo::Resources::Shared::BaseResponse,
       raw_collection: api_response.body[:collection]
     )
   end

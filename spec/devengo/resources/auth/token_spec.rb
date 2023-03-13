@@ -2,7 +2,7 @@
 
 RSpec.describe Devengo::Resources::Auth::Token, :unit, type: :resource do
   subject(:token) do
-    described_class.new(value: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.TYzGzbjKUZAZ5JsTYB2MAgbRB0aJ5Xkyk7Pp43nehlI") # rubocop:disable Layout/LineLength
+    described_class.from_raw(value: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.TYzGzbjKUZAZ5JsTYB2MAgbRB0aJ5Xkyk7Pp43nehlI") # rubocop:disable Layout/LineLength
   end
 
   it "token with expected expires_at" do
@@ -29,7 +29,7 @@ RSpec.describe Devengo::Resources::Auth::Token, :unit, type: :resource do
       ["invalid_token"],
     ].each do |invalid_token|
       it "raise an expected exception" do
-        expect { described_class.new(value: invalid_token) }.to raise_error do |exception|
+        expect { described_class.from_raw(value: invalid_token) }.to raise_error do |exception|
           expect(exception).to be_a Devengo::Errors::InvalidToken
           expect(exception.message).to eq "Invalid provided token"
         end

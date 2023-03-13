@@ -22,15 +22,15 @@ module Devengo
         map :third_party
         map :metadata
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
-                amount: Shared::Money.new(**attributes[:amount]),
-                destination: Destination.new(**attributes[:destination]),
-                processor: Processor.new(**attributes[:processor]),
-                error: Error.init_nullable(attributes[:error]),
-                third_party: Shared::ThirdParties::ThirdParty.new(**attributes[:third_party]),
-                links: Links.init_nullable(attributes[:links])
+                amount: Shared::Money.from_raw(**attributes[:amount]),
+                destination: Destination.from_raw(**attributes[:destination]),
+                processor: Processor.from_raw(**attributes[:processor]),
+                error: Error.from_raw_nullable(attributes[:error]),
+                third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
+                links: Links.from_raw_nullable(attributes[:links])
         end
       end
     end

@@ -4,8 +4,8 @@ module Devengo
   module Resources
     module Transactions
       class Collection < Shared::BaseResponseCollection
-        def initialize(api_response:, raw_collection:)
-          super api_response: api_response, item_klass: Transaction, raw_collection: raw_collection
+        def self.item_klass
+          Transaction
         end
       end
     end
