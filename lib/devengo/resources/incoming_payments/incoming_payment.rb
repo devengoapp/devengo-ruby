@@ -18,7 +18,7 @@ module Devengo
           super api_response: api_response,
                 **attributes,
                 amount: Shared::Money.new(**attributes[:amount]),
-                third_party: Shared::ThirdParty.new(**attributes[:third_party])
+                third_party: Shared::ThirdParties::ThirdParty.new(**attributes[:third_party])
         end
       end
     end

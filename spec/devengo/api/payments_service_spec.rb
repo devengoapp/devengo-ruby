@@ -28,11 +28,11 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.error).to be_nil
       expect(payment.links).to be_a Devengo::Resources::Payments::Links
       expect(payment.links.receipt).to eq "https://api.sandbox.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY/receipt/download"
-      expect(payment.third_party).to be_a Devengo::Resources::Shared::ThirdParty
+      expect(payment.third_party).to be_a Devengo::Resources::Shared::ThirdParties::ThirdParty
       expect(payment.third_party.name).to eq "Ana Devenger"
-      expect(payment.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdPartyAccountNumber
+      expect(payment.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::AccountNumber # rubocop:disable Layout/LineLength
       expect(payment.third_party.account_number.iban).to eq "ES4131908294777999369566"
-      expect(payment.third_party.bank).to be_a Devengo::Resources::Shared::ThirdPartyBank
+      expect(payment.third_party.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
       expect(payment.third_party.bank.name).to eq "Banco de Sabadell, S.A."
       expect(payment.third_party.bank.bic).to eq "BSABESBBXXX"
       expect(payment.metadata).to eq example_key: "example_value"

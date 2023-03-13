@@ -29,7 +29,7 @@ module Devengo
                 destination: Destination.new(**attributes[:destination]),
                 processor: Processor.new(**attributes[:processor]),
                 error: Error.init_nullable(attributes[:error]),
-                third_party: Shared::ThirdParty.new(**attributes[:third_party]),
+                third_party: Shared::ThirdParties::ThirdParty.new(**attributes[:third_party]),
                 links: Links.init_nullable(attributes[:links])
         end
       end
