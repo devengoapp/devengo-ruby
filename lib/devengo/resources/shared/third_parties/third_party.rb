@@ -13,7 +13,7 @@ module Devengo
           def initialize(**attributes)
             super(
               **attributes,
-              account: Accounts::Account.new(**attributes[:account]),
+              account: Accounts::Account.init_nullable(**attributes[:account]),
               account_number: Accounts::AccountNumber.init_nullable(attributes[:account_number]),
               bank: Bank.init_nullable(attributes[:bank])
             )
