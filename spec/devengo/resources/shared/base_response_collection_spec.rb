@@ -16,7 +16,9 @@ RSpec.describe Devengo::Resources::Shared::BaseResponseCollection, :unit, type: 
   let(:api_response) { initialize_client.get(path: "collection", authenticate: false) }
 
   it "collection with expected data" do
+    expect(base_response_collection.api_response).to be_a Faraday::Response
     expect(base_response_collection.count).to be 2
+    expect(base_response_collection.first.api_response).to be_nil
     expect(base_response_collection.pagination).to be_a Devengo::Resources::Shared::Pagination
     expect(instance_methods_count(base_response_collection.pagination)).to be 6
     expect(base_response_collection.pagination.self).to eq "https://api.sandbox.devengo.com/v1/collection?page=1&page_size=100"

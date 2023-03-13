@@ -12,14 +12,14 @@ module Devengo
         def initialize(api_response:, item_klass:, raw_collection: [])
           super api_response: api_response,
                 raw_collection: raw_collection,
-                items: parse_raw_collection(raw_collection, item_klass, api_response),
+                items: parse_raw_collection(raw_collection, item_klass),
                 pagination: init_pagination(api_response),
                 meta: api_response.body[:meta]
         end
 
-        private def parse_raw_collection(raw_collection, item_klass, api_response)
+        private def parse_raw_collection(raw_collection, item_klass)
           raw_collection.map do |attributes_item|
-            item_klass.new(api_response: api_response, **attributes_item)
+            item_klass.new(api_response: nil, **attributes_item)
           end
         end
 
