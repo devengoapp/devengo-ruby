@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   build:
-    name: Ruby ${{ matrix.ruby-version }}
+    name: Test build (Ruby ${{ matrix.ruby-version }})
     needs: [MarkdownLint, YamlLint, Rubocop]
     runs-on: ubuntu-latest
     steps:
