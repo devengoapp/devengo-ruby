@@ -3,8 +3,11 @@
 module Devengo
   module Resources
     module Shared
-      class ThirdPartyAccountNumber < Shared::Base
-        map :iban
+      module ThirdParties
+        class Bank < Shared::Base
+          map :bic
+          map :name
+        end
       end
     end
   end

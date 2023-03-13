@@ -18,9 +18,9 @@ module Devengo
         def initialize(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
-                identifiers: Shared::ThirdPartyIdentifierCollection.new(attributes[:identifiers]),
+                identifiers: Shared::ThirdParties::Identifiers::Collection.new(attributes[:identifiers]),
                 balance: Balance.new(**attributes[:balance]),
-                bank: Shared::ThirdPartyBank.init_nullable(attributes[:bank])
+                bank: Shared::ThirdParties::Bank.init_nullable(attributes[:bank])
         end
       end
     end
