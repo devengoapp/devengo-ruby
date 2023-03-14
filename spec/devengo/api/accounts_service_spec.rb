@@ -15,7 +15,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.identifiers.count).to eq 1
       expect(account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdParties::Identifiers::Iban
       expect(account.identifiers.first.type).to eq "iban"
-      expect(account.identifiers.first.iban).to eq parameters[:account_number]
+      expect(account.identifiers.first.iban).to eq parameters[:iban]
       expect(account.bank).to be_a parameters[:bank]
       expect(account.balance).to be_a Devengo::Resources::Accounts::Balance
       expect(account.balance.available).to be_a Devengo::Resources::Shared::Money
@@ -45,7 +45,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     path: "accounts/acc_7SZwPFdReAtDu8aNr1T5dE"
 
     it_behaves_like "accounts expects",
-                    account_number: "ES8967130002000000025500",
+                    iban: "ES8967130002000000025500",
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdParties::Accounts::Bank,
@@ -64,7 +64,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     path: "accounts"
 
     it_behaves_like "accounts expects",
-                    account_number: "ES8967130002000000025500",
+                    iban: "ES8967130002000000025500",
                     available_cents: 10_000,
                     total_cents: 11_000,
                     bank: Devengo::Resources::Shared::ThirdParties::Accounts::Bank,
@@ -92,7 +92,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     body: { name: "My new account", currency: "EUR", metadata: { example_key: "example_value" } }
 
     it_behaves_like "accounts expects",
-                    account_number: nil,
+                    iban: nil,
                     available_cents: 0,
                     total_cents: 0,
                     bank: nil.class,
