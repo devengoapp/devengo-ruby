@@ -19,7 +19,7 @@ module Devengo
                 **attributes,
                 identifiers: Shared::ThirdParties::Identifiers::Collection.from_raw(attributes[:identifiers]),
                 balance: Balance.from_raw(**attributes[:balance]),
-                bank: Shared::ThirdParties::Bank.from_raw_nullable(attributes[:bank])
+                bank: Shared::ThirdParties::Accounts::Bank.from_raw_nullable(attributes[:bank])
         end
       end
     end

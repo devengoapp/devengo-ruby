@@ -48,7 +48,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     account_number: "ES8967130002000000025500",
                     available_cents: 10_000,
                     total_cents: 11_000,
-                    bank: Devengo::Resources::Shared::ThirdParties::Bank,
+                    bank: Devengo::Resources::Shared::ThirdParties::Accounts::Bank,
                     metadata: { example_key: "example_value" }
   end
 
@@ -67,7 +67,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     account_number: "ES8967130002000000025500",
                     available_cents: 10_000,
                     total_cents: 11_000,
-                    bank: Devengo::Resources::Shared::ThirdParties::Bank,
+                    bank: Devengo::Resources::Shared::ThirdParties::Accounts::Bank,
                     metadata: { example_key: "example_value" }
 
     it "return expected element" do

@@ -31,7 +31,7 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdParties::Identifiers::Iban # rubocop:disable Layout/LineLength
       expect(transaction.third_party.account.identifiers.first.type).to eq "iban"
       expect(transaction.third_party.account.identifiers.first.iban).to eq "LT501243351241283711"
-      expect(transaction.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
+      expect(transaction.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::Bank
       expect(transaction.third_party.account.bank.name).to eq "Revolut Payments UAB"
       expect(transaction.third_party.account.bank.bic).to eq "REVOLT21"
     end

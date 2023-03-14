@@ -34,7 +34,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdParties::Identifiers::Iban # rubocop:disable Layout/LineLength
       expect(payment.third_party.account.identifiers.first.type).to eq "iban"
       expect(payment.third_party.account.identifiers.first.iban).to eq "ES4131908294777999369566"
-      expect(payment.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
+      expect(payment.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::Bank
       expect(payment.third_party.account.bank.name).to eq "Banco de Sabadell, S.A."
       expect(payment.third_party.account.bank.bic).to eq "BSABESBBXXX"
       expect(payment.metadata).to eq example_key: "example_value"
