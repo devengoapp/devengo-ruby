@@ -26,7 +26,6 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.entity.ref).to eq "https://api.devengo.com/v1/payments/pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(transaction.third_party).to be_a Devengo::Resources::Shared::ThirdParties::ThirdParty
       expect(transaction.third_party.name).to eq "Company S.L."
-      expect(transaction.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::AccountNumber # rubocop:disable Layout/LineLength
       expect(transaction.third_party.account).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::Account
       expect(transaction.third_party.account.identifiers.count).to eq 1
       expect(transaction.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdParties::Identifiers::Iban # rubocop:disable Layout/LineLength
@@ -35,10 +34,6 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
       expect(transaction.third_party.account.bank.name).to eq "Revolut Payments UAB"
       expect(transaction.third_party.account.bank.bic).to eq "REVOLT21"
-      expect(transaction.third_party.account_number.iban).to eq "LT501243351241283711"
-      expect(transaction.third_party.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
-      expect(transaction.third_party.bank.name).to eq "Revolut Payments UAB"
-      expect(transaction.third_party.bank.bic).to eq "REVOLT21"
     end
   end
 

@@ -18,11 +18,13 @@ RSpec.describe Devengo::API::IncomingPaymentsService, :integration, type: :api d
       expect(incoming_payment.amount.currency).to eq "EUR"
       expect(incoming_payment.third_party).to be_a Devengo::Resources::Shared::ThirdParties::ThirdParty
       expect(incoming_payment.third_party.name).to eq "Company S.L."
-      expect(incoming_payment.third_party.account_number).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::AccountNumber # rubocop:disable Layout/LineLength
-      expect(incoming_payment.third_party.account_number.iban).to eq "LT501243351241283711"
-      expect(incoming_payment.third_party.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
-      expect(incoming_payment.third_party.bank.name).to eq "Revolut Payments UAB"
-      expect(incoming_payment.third_party.bank.bic).to eq "REVOLT21"
+      expect(incoming_payment.third_party.account.identifiers.count).to eq 1
+      expect(incoming_payment.third_party.account.identifiers.first).to be_a Devengo::Resources::Shared::ThirdParties::Identifiers::Iban # rubocop:disable Layout/LineLength
+      expect(incoming_payment.third_party.account.identifiers.first.type).to eq "iban"
+      expect(incoming_payment.third_party.account.identifiers.first.iban).to eq "LT501243351241283711"
+      expect(incoming_payment.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Bank
+      expect(incoming_payment.third_party.account.bank.name).to eq "Revolut Payments UAB"
+      expect(incoming_payment.third_party.account.bank.bic).to eq "REVOLT21"
       expect(incoming_payment.created_at).to eq "2022-01-01T12:00:00Z"
     end
   end

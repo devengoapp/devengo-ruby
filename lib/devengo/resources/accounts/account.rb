@@ -8,7 +8,6 @@ module Devengo
         map :bank
         map :status
         map :name
-        map :number
         map :identifiers
         map :currency
         map :metadata
