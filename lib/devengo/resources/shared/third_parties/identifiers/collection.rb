@@ -6,16 +6,16 @@ module Devengo
       module ThirdParties
         module Identifiers
           class Collection < BaseCollection
-            def initialize(identifiers)
+            def self.from_raw(identifiers)
               super items: identifiers.map { |identifier| raw_identifier_parser(identifier) }
             end
 
-            private def raw_identifier_parser(identifier)
+            private_class_method def self.raw_identifier_parser(identifier)
               case identifier[:type]
               when "iban"
-                ThirdParties::Identifiers::Iban.new(**identifier)
+                ThirdParties::Identifiers::Iban.from_raw(**identifier)
               when "ukscan"
-                ThirdParties::Identifiers::UkScan.new(**identifier)
+                ThirdParties::Identifiers::UkScan.from_raw(**identifier)
               end
             end
           end

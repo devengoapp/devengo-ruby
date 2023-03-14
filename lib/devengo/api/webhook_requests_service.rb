@@ -5,12 +5,12 @@ module Devengo
     class WebhookRequestsService < Service
       def find(webhook_id:, webhook_request_id:, **opts)
         api_response = client.get(path: "webhooks/#{webhook_id}/requests/#{webhook_request_id}", **opts)
-        Resources::WebhookRequests::WebhookRequest.new(api_response: api_response, **api_response.body[:request])
+        Resources::WebhookRequests::WebhookRequest.from_raw(api_response: api_response, **api_response.body[:request])
       end
 
       def list(webhook_id:, **opts)
         api_response = client.get(path: "webhooks/#{webhook_id}/requests", **opts)
-        Resources::WebhookRequests::Collection.new(
+        Resources::WebhookRequests::Collection.from_raw(
           api_response: api_response,
           raw_collection: api_response.body[:requests]
         )

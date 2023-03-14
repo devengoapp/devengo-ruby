@@ -16,13 +16,13 @@ module Devengo
         map :entity
         map :third_party
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
-                third_party: Shared::ThirdParties::ThirdParty.new(**attributes[:third_party]),
-                balance: Shared::Money.new(**attributes[:balance]),
-                amount: Shared::Money.new(**attributes[:amount]),
-                entity: Entity.init_nullable(attributes[:entity])
+                third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
+                balance: Shared::Money.from_raw(**attributes[:balance]),
+                amount: Shared::Money.from_raw(**attributes[:amount]),
+                entity: Entity.from_raw_nullable(attributes[:entity])
         end
       end
     end

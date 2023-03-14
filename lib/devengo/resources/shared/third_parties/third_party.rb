@@ -10,12 +10,12 @@ module Devengo
           map :account_number
           map :bank
 
-          def initialize(**attributes)
+          def self.from_raw(**attributes)
             super(
               **attributes,
-              account: Accounts::Account.init_nullable(attributes[:account]),
-              account_number: Accounts::AccountNumber.init_nullable(attributes[:account_number]),
-              bank: Bank.init_nullable(attributes[:bank])
+              account: Accounts::Account.from_raw_nullable(attributes[:account]),
+              account_number: Accounts::AccountNumber.from_raw_nullable(attributes[:account_number]),
+              bank: Bank.from_raw_nullable(attributes[:bank])
             )
           end
         end

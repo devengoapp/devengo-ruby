@@ -15,12 +15,12 @@ module Devengo
         map :balance
         map :created_at
 
-        def initialize(api_response:, **attributes)
+        def self.from_raw(api_response:, **attributes)
           super api_response: api_response,
                 **attributes,
-                identifiers: Shared::ThirdParties::Identifiers::Collection.new(attributes[:identifiers]),
-                balance: Balance.new(**attributes[:balance]),
-                bank: Shared::ThirdParties::Bank.init_nullable(attributes[:bank])
+                identifiers: Shared::ThirdParties::Identifiers::Collection.from_raw(attributes[:identifiers]),
+                balance: Balance.from_raw(**attributes[:balance]),
+                bank: Shared::ThirdParties::Bank.from_raw_nullable(attributes[:bank])
         end
       end
     end

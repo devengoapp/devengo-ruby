@@ -5,17 +5,20 @@ module Devengo
     class AccountsService < Service
       def find(account_id:, **opts)
         api_response = client.get(path: "accounts/#{account_id}", **opts)
-        Resources::Accounts::Account.new(api_response: api_response, **api_response.body[:account])
+        Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
       def list(**opts)
         api_response = client.get(path: "accounts", **opts)
-        Resources::Accounts::Collection.new(api_response: api_response, raw_collection: api_response.body[:accounts])
+        Resources::Accounts::Collection.from_raw(
+          api_response: api_response,
+          raw_collection: api_response.body[:accounts]
+        )
       end
 
       def create(**opts)
         api_response = client.post(path: "accounts", **opts)
-        Resources::Accounts::Account.new(api_response: api_response, **api_response.body[:account])
+        Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
       def close(account_id:, **opts)

@@ -10,11 +10,11 @@ module Devengo
         map :value
         map :expires_at
 
-        def initialize(**attributes)
-          super(value: attributes[:value], expires_at: expires_at_by_token(attributes[:value]))
+        def self.from_raw(**attributes)
+          super(**attributes, expires_at: expires_at_by_token(attributes[:value]))
         end
 
-        private def expires_at_by_token(token)
+        private_class_method def self.expires_at_by_token(token)
           expired_at_timestamp = JWT.decode(token, nil, false).first["exp"]
 
           raise Errors::InvalidToken if expired_at_timestamp.nil?
