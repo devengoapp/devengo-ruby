@@ -4,9 +4,11 @@ module Devengo
   module Resources
     module Shared
       module ThirdParties
-        class Bank < Shared::Base
-          map :bic
-          map :name
+        module Accounts
+          class Bank < Shared::Base
+            map :bic
+            map :name
+          end
         end
       end
     end
