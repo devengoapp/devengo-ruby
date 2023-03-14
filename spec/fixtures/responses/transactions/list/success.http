@@ -54,13 +54,6 @@ Via: 1.1 vegur
                         "name": "Revolut Payments UAB",
                         "bic": "REVOLT21"
                     }
-                },
-                "account_number": {
-                    "iban": "LT501243351241283711"
-                },
-                "bank": {
-                    "name": "Revolut Payments UAB",
-                    "bic": "REVOLT21"
                 }
             }
         }
