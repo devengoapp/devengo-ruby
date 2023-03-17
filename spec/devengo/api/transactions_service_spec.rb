@@ -12,7 +12,7 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
       expect(transaction.description).to eq "Transaction description"
       expect(transaction.operation_date).to eq "2022-01-01T12:00:00Z"
       expect(transaction.created_at).to eq "2022-01-01T12:00:00Z"
-      expect(transaction.value_at).to eq "2022-01-01T12:00:10Z"
+      expect(transaction.final_at).to eq "2022-01-01T12:00:10Z"
       expect(transaction.operation_type).to eq "deposit"
       expect(transaction.credit_debit).to eq "debit"
       expect(transaction.amount).to be_a Devengo::Resources::Shared::Money
