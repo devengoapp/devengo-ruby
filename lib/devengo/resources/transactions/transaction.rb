@@ -7,9 +7,8 @@ module Devengo
         map :id
         map :account_id
         map :description
-        map :operation_date
         map :created_at
-        map :final_at
+        map :valued_at
         map :operation_type
         map :credit_debit
         map :amount
