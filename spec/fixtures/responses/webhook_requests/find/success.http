@@ -34,7 +34,8 @@ Via: 1.1 vegur
             "body": null,
             "created_at": "2022-01-01T12:00:00Z",
             "event_id": "evt_6DdZqWUAIJL8p6i44jsZWd",
-            "event_name": "webhook.created"
+            "event_name": "webhook.created",
+            "error": null
         }
     }
 }

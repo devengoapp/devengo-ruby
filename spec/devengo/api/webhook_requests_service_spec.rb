@@ -15,7 +15,7 @@ RSpec.describe Devengo::API::WebhookRequestsService, :integration, type: :api do
       expect(webhook_request.event_id).to eq "evt_6DdZqWUAIJL8p6i44jsZWd"
       expect(webhook_request.event_name).to eq "webhook.created"
       expect(webhook_request.response).to be_a Devengo::Resources::WebhookRequests::Response
-      expect(instance_methods_count(webhook_request.response)).to eq 7
+      expect(instance_methods_count(webhook_request.response)).to eq 8
       expect(webhook_request.response.id).to eq "whs_2T5vIZ5LL5jab4V3UbKyKM"
       expect(webhook_request.response.status).to eq 200
       expect(webhook_request.response.headers).to be_empty
@@ -23,6 +23,7 @@ RSpec.describe Devengo::API::WebhookRequestsService, :integration, type: :api do
       expect(webhook_request.response.created_at).to eq "2022-01-01T12:00:00Z"
       expect(webhook_request.response.event_id).to eq "evt_6DdZqWUAIJL8p6i44jsZWd"
       expect(webhook_request.response.event_name).to eq "webhook.created"
+      expect(webhook_request.response.error).to be_nil
     end
   end
 

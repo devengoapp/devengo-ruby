@@ -11,6 +11,7 @@ module Devengo
         map :created_at
         map :event_id
         map :event_name
+        map :error
       end
     end
   end
