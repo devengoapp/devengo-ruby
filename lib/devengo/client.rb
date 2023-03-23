@@ -46,7 +46,7 @@ module Devengo
     end
 
     private def request(method:, path:, authenticate:, opts:)
-      connection.send(method, path, parse_opts(method, opts), additional_headers(authenticate))
+      connection.send(method, path, parse_opts(method, opts), auth_header(authenticate))
     end
 
     private def connection
@@ -75,10 +75,8 @@ module Devengo
       { content_type: "application/json" }
     end
 
-    protected def additional_headers(authenticate)
-      return { authorization: "Bearer #{auth_token}" } if authenticate
-
-      {}
+    private def auth_header(authenticate)
+      { authorization: "Bearer #{auth_token}" } if authenticate
     end
 
     private def auth_token
