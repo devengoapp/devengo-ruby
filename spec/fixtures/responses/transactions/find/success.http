@@ -23,6 +23,7 @@ Via: 1.1 vegur
         "id": "txn_3NuWZw8zSY2LNMoNXgVwaR",
         "account_id": "acc_fYpgX5Ytdxzexuf61lFmw",
         "description": "Transaction description",
+        "operation_date": "2022-01-01T12:00:10Z",
         "created_at": "2022-01-01T12:00:00Z",
         "valued_at": "2022-01-01T12:00:10Z",
         "operation_type": "deposit",
