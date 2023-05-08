@@ -25,6 +25,12 @@ Via: 1.1 vegur
         "locale": "es",
         "email": "satya@microsoft.com",
         "job_position": "product",
-        "status": "active"
+        "status": "active",
+        "products": [
+            {
+                "slug": "payments",
+                "name": "Payments"
+            }
+        ]
     }
 }
