@@ -11,7 +11,7 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
       expect(verification.status).to eq "error"
       expect(verification.company_reference).to be_nil
       expect(verification.attempts).to eq 0
-      expect(verification.eta).to be_nil
+      expect(verification.eta).to eq "2023-05-04T09:52:50Z"
       expect(verification.created_at).to eq "2023-05-04T09:52:46Z"
       expect(verification.expired_at).to eq "2023-05-11T09:52:46Z"
       expect(verification.third_party).to be_a Devengo::Resources::Shared::ThirdParties::ThirdParty
