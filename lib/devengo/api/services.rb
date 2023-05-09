@@ -22,6 +22,10 @@ module Devengo
       def transactions
         @services[:transactions] ||= TransactionsService.new(self)
       end
+      
+      def verifications
+        @services[:verifications] ||= VerificationsService.new(self)
+      end
 
       def webhooks
         @services[:webhooks] ||= WebhooksService.new(self)
@@ -44,3 +48,4 @@ require_relative "transactions_service"
 require_relative "verifications_service"
 require_relative "webhook_requests_service"
 require_relative "webhooks_service"
+require_relative "verifications_service"
