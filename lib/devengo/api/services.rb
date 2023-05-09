@@ -22,7 +22,7 @@ module Devengo
       def transactions
         @services[:transactions] ||= TransactionsService.new(self)
       end
-      
+
       def verifications
         @services[:verifications] ||= VerificationsService.new(self)
       end
