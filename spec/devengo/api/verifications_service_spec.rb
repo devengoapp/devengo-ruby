@@ -27,6 +27,21 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
     end
   end
 
+  describe "find verification" do
+    include_context "with stub request",
+                    method: :get,
+                    path: "verifications/vrf_4krc1kE2lQL7nE7yT4wBHH",
+                    resource: "verifications/find"
+
+    let!(:verification) { verifications_services.find(verification_id: "vrf_4krc1kE2lQL7nE7yT4wBHH") } # rubocop:disable RSpec/LetSetup
+
+    it_behaves_like "builds correct request",
+                    method: :get,
+                    path: "verifications/vrf_4krc1kE2lQL7nE7yT4wBHH"
+
+    it_behaves_like "verification expects"
+  end
+
   describe "list verifications" do
     include_context "with stub request",
                     method: :get,
