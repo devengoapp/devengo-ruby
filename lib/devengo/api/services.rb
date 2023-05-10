@@ -23,6 +23,10 @@ module Devengo
         @services[:transactions] ||= TransactionsService.new(self)
       end
 
+      def verifications
+        @services[:verifications] ||= VerificationsService.new(self)
+      end
+
       def webhooks
         @services[:webhooks] ||= WebhooksService.new(self)
       end
