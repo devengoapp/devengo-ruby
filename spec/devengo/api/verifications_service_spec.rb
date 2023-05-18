@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
   shared_examples "verification expects" do
     it "verification with expected data" do
       expect(verification).to be_a Devengo::Resources::Verifications::Verification
-      expect(instance_methods_count(verification)).to eq 9
+      expect(instance_methods_count(verification)).to eq 10
       expect(verification.id).to eq "vrf_4krc1kE2lQL7nE7yT4wBHH"
       expect(verification.status).to eq "error"
       expect(verification.company_reference).to be_nil
@@ -23,6 +23,9 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
       expect(verification.third_party.account.bank).to be_a Devengo::Resources::Shared::ThirdParties::Accounts::Bank
       expect(verification.third_party.account.bank.name).to eq "Abanca Corporación Bancaria, S.A."
       expect(verification.third_party.account.bank.bic).to eq "CAGLESMMXXX"
+      expect(verification.error.code).to eq "ERR-0001"
+      expect(verification.error.type).to eq "blocked_account"
+      expect(verification.error.reason).to eq "AC06"
       expect(verification.metadata).to eq example_key: "example_value"
     end
   end
