@@ -63,8 +63,8 @@ RSpec.describe Devengo::API::TransactionsService, :integration, type: :api do
                     path: "accounts/acc_fYpgX5Ytdxzexuf61lFmw/transactions"
 
     it "transactions with expected data" do
-      transaction1 = transactions.entries[0]
-      transaction2 = transactions.entries[1]
+      transaction1 = transactions.to_a[0]
+      transaction2 = transactions.to_a[1]
 
       expect(transaction1).to be_a Devengo::Resources::Transactions::Transaction
       expect(instance_methods_count(transaction1)).to eq 13
