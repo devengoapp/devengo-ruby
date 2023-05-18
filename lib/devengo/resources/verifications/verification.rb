@@ -19,7 +19,7 @@ module Devengo
           super api_response: api_response,
                 **attributes,
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
-                error: Error.from_raw_nullable(attributes[:error])
+                error: Shared::Error.from_raw_nullable(attributes[:error])
         end
       end
     end

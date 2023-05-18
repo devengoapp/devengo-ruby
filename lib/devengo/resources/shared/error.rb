@@ -2,8 +2,8 @@
 
 module Devengo
   module Resources
-    module Payments
-      class Error < Shared::Base
+    module Shared
+      class Error < Base
         map :code
         map :type
         map :reason
