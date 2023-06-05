@@ -22,7 +22,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.internal).to be false
       expect(payment.eta).to eq "2023-02-09T11:14:17Z"
       expect(payment.created_at).to eq "2023-02-09T11:14:07Z"
-      expect(payment.processor).to be_a Devengo::Resources::Payments::Processor
+      expect(payment.processor).to be_a Devengo::Resources::Shared::Processor
       expect(payment.processor.network).to eq "SEPA"
       expect(payment.processor.scheme).to eq "SCT-INST"
       expect(payment.error).to be_nil
@@ -146,7 +146,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(preview).to be_a Devengo::Resources::Payments::Preview
       expect(instance_methods_count(preview)).to eq 3
       expect(preview.instant).to be true
-      expect(preview.processor).to be_a Devengo::Resources::Payments::Processor
+      expect(preview.processor).to be_a Devengo::Resources::Shared::Processor
       expect(preview.eta).to eq "2023-02-09T11:14:17Z"
       expect(preview.processor.network).to eq "SEPA"
       expect(preview.processor.scheme).to eq "SCT-INST"
