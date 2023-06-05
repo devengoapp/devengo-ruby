@@ -26,6 +26,11 @@ Via: 1.1 vegur
             "status": "confirmed",
             "description": "Incoming payment description",
             "internal": false,
+            "instant": true,
+            "processor": {
+                "network": "SEPA",
+                "scheme": "SCT-INST"
+            },
             "amount": {
                 "cents": 10000,
                 "currency": "EUR"

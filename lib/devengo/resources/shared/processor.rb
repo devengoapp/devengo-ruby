@@ -2,7 +2,7 @@
 
 module Devengo
   module Resources
-    module Payments
+    module Shared
       class Processor < Shared::Base
         map :network
         map :scheme

@@ -27,7 +27,7 @@ module Devengo
                 **attributes,
                 amount: Shared::Money.from_raw(**attributes[:amount]),
                 destination: Destination.from_raw(**attributes[:destination]),
-                processor: Processor.from_raw(**attributes[:processor]),
+                processor: Shared::Processor.from_raw(**attributes[:processor]),
                 error: Shared::Error.from_raw_nullable(attributes[:error]),
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
                 links: Links.from_raw_nullable(attributes[:links])

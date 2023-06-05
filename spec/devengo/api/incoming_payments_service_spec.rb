@@ -6,13 +6,16 @@ RSpec.describe Devengo::API::IncomingPaymentsService, :integration, type: :api d
   shared_examples "incoming payment expects" do
     it "incoming payment with expected data" do
       expect(incoming_payment).to be_a Devengo::Resources::IncomingPayments::IncomingPayment
-      expect(instance_methods_count(incoming_payment)).to eq 9
+      expect(instance_methods_count(incoming_payment)).to eq 11
       expect(incoming_payment.id).to eq "pyi_7FssaPM2jVvKGwoRJB1R36"
       expect(incoming_payment.account_id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(incoming_payment.status).to eq "confirmed"
       expect(incoming_payment.description).to eq "Incoming payment description"
       expect(incoming_payment.company_reference).to eq "123"
       expect(incoming_payment.internal).to be false
+      expect(incoming_payment.instant).to be true
+      expect(incoming_payment.processor.network).to eq "SEPA"
+      expect(incoming_payment.processor.scheme).to eq "SCT-INST"
       expect(incoming_payment.amount).to be_a Devengo::Resources::Shared::Money
       expect(incoming_payment.amount.cents).to eq 10_000
       expect(incoming_payment.amount.currency).to eq "EUR"
