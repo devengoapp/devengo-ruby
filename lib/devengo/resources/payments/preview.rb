@@ -9,7 +9,9 @@ module Devengo
         map :processor
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response, **attributes, processor: Shared::Processor.from_raw(**attributes[:processor])
+          super api_response: api_response,
+                **attributes,
+                processor: Shared::Processor.from_raw(**attributes[:processor])
         end
       end
     end
