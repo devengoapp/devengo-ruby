@@ -30,6 +30,14 @@ module Devengo
         client.delete(path: "webhooks/#{webhook_id}", **opts)
         nil
       end
+
+      def events(**opts)
+        api_response = client.get(path: "webhooks/events", **opts)
+        Resources::Webhooks::Events::Collection.from_raw(
+          api_response: api_response,
+          raw_collection: api_response.body[:events]
+        )
+      end
     end
   end
 end
