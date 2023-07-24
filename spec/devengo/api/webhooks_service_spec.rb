@@ -88,4 +88,23 @@ RSpec.describe Devengo::API::WebhooksService, :integration, type: :api do
       expect(response).to be_nil
     end
   end
+
+  describe "webhook events" do
+    include_context "with stub request",
+                    method: :get,
+                    path: "webhooks/events",
+                    resource: "webhooks/events"
+
+    let!(:response) { webhooks_service.events }
+
+    it_behaves_like "builds correct request",
+                    method: :get,
+                    path: "webhooks/events"
+
+    it "return expected element" do
+      expect(response).to be_a Devengo::Resources::Webhooks::Events::Collection
+      expect(response.count).to eq 3
+      expect(response.items).to eq %w[outgoing_payment.created outgoing_payment.processing outgoing_payment.confirmed]
+    end
+  end
 end
