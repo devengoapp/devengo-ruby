@@ -13,6 +13,7 @@ module Devengo
         map :metadata
         map :balance
         map :created_at
+        map :closed_at
 
         def self.from_raw(api_response:, **attributes)
           super api_response: api_response,
