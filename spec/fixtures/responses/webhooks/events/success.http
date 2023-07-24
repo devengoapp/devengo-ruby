@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1498
+X-Ratelimit-Reset: 1676025720
+Etag: W/"d86717a25b5f30289d29348967724b82"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: af53063b-d2f1-4b99-beff-b2de251721d5
+X-Runtime: 0.146450
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "events": [
+        "outgoing_payment.created",
+        "outgoing_payment.processing",
+        "outgoing_payment.confirmed"
+    ]
+}
