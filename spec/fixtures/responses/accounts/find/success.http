@@ -47,6 +47,7 @@ Via: 1.1 vegur
         },
         "metadata": {
             "example_key": "example_value"
-        }
+        },
+        "payment_limit": 1000000
     }
 }

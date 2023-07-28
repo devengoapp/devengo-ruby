@@ -39,6 +39,7 @@ Vary: Origin
                 "currency": "EUR"
             }
         },
-        "metadata": {}
+        "metadata": {},
+        "payment_limit": 1000000
     }
 }
