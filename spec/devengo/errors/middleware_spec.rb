@@ -13,9 +13,7 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
   end
 
   before do
-    allow(env).to receive(:response).and_return(api_response)
-    allow(env).to receive(:status).and_return(status)
-    allow(env).to receive(:body).and_return(body)
+    allow(env).to receive_messages(response: api_response, status: status, body: body)
   end
 
   context "when is a client HTTP code" do
