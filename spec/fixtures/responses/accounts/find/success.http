@@ -17,6 +17,7 @@ X-Runtime: 0.032480
 Strict-Transport-Security: max-age=63072000; includeSubDomains
 Vary: Origin
 Via: 1.1 vegur
+
 {
     "account": {
         "id": "acc_7SZwPFdReAtDu8aNr1T5dE",
