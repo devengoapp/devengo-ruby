@@ -48,8 +48,7 @@ Via: 1.1 vegur
             },
             "metadata": {
                 "example_key": "example_value"
-            },
-            "payment_limit": 1000000
+            }
         },
         {
             "id": "acc_7SZwPFdReAtDu8aNr1T5dP",
