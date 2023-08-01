@@ -17,7 +17,6 @@ X-Runtime: 0.109951
 Strict-Transport-Security: max-age=63072000; includeSubDomains
 Vary: Origin
 Via: 1.1 vegur
-
 {
     "accounts": [
         {
@@ -77,11 +76,8 @@ Via: 1.1 vegur
                     "currency": "EUR"
                 }
             },
-            "metadata": {
-                "example_key": "example_value"
-            },
-            "closed_at": "2023-02-15T12:00:00Z",
-            "payment_limit": 1000000
+            "metadata": {},
+            "closed_at": "2023-02-15T12:00:00Z"
         }
     ],
     "links": {
