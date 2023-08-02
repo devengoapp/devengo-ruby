@@ -39,6 +39,7 @@ Vary: Origin
                 "currency": "EUR"
             }
         },
-        "metadata": {}
+        "metadata": {},
+        "closed_at": null
     }
 }

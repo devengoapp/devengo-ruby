@@ -48,7 +48,8 @@ Via: 1.1 vegur
             },
             "metadata": {
                 "example_key": "example_value"
-            }
+            },
+            "closed_at": null
         },
         {
             "id": "acc_7SZwPFdReAtDu8aNr1T5dP",
@@ -68,11 +69,11 @@ Via: 1.1 vegur
             },
             "balance": {
                 "total": {
-                    "cents": 11000,
+                    "cents": 0,
                     "currency": "EUR"
                 },
                 "available": {
-                    "cents": 10000,
+                    "cents": 0,
                     "currency": "EUR"
                 }
             },
