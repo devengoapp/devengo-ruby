@@ -14,6 +14,7 @@ module Devengo
         map :balance
         map :created_at
         map :closed_at
+        map :max_payment_limit
 
         def self.from_raw(api_response:, **attributes)
           super api_response: api_response,

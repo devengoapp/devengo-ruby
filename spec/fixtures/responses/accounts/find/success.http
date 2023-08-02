@@ -48,6 +48,7 @@ Via: 1.1 vegur
         "metadata": {
             "example_key": "example_value"
         },
-         "closed_at": null
+         "closed_at": null,
+         "max_payment_limit": 10001
     }
 }
