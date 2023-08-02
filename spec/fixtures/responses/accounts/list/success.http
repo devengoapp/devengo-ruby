@@ -48,7 +48,37 @@ Via: 1.1 vegur
             },
             "metadata": {
                 "example_key": "example_value"
-            }
+            },
+            "closed_at": null
+        },
+        {
+            "id": "acc_7SZwPFdReAtDu8aNr1T5dP",
+            "status": "closed",
+            "created_at": "2023-02-01T12:00:00Z",
+            "name": "My account 2",
+            "identifiers": [
+                {
+                    "type": "iban",
+                    "iban": "ES8967130002000000025501"
+                }
+            ],
+            "currency": "EUR",
+            "bank": {
+                "name": "Prepaid Financial Services Limited, S.E",
+                "bic": "PFSSESM1XXX"
+            },
+            "balance": {
+                "total": {
+                    "cents": 0,
+                    "currency": "EUR"
+                },
+                "available": {
+                    "cents": 0,
+                    "currency": "EUR"
+                }
+            },
+            "metadata": {},
+            "closed_at": "2023-02-15T12:00:00Z"
         }
     ],
     "links": {
@@ -58,7 +88,7 @@ Via: 1.1 vegur
     },
     "meta": {
         "pagination": {
-            "total_items": 1
+            "total_items": 2
         }
     }
 }
