@@ -27,7 +27,7 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
       expect(account.metadata).to eq parameters[:metadata]
       expect(account.created_at).to eq "2023-01-01T12:00:00Z"
       expect(account.closed_at).to be_nil
-      expect(account.max_payment_limit).to eq 10001
+      expect(account.max_payment_limit).to eq 10_001
     end
 
     it "account bank with expected data", if: parameters[:bank] != NilClass do
