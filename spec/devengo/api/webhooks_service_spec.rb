@@ -54,20 +54,30 @@ RSpec.describe Devengo::API::WebhooksService, :integration, type: :api do
 
   describe "update webhook" do
     include_context "with stub request",
-                    method: :put,
+                    method: :patch,
                     path: "webhooks/whk_QMuQ74NPggjlPWOYbkLdc",
                     resource: "webhooks/update"
 
     let!(:webhook) do # rubocop:disable RSpec/LetSetup
-      webhooks_service.update(webhook_id: "whk_QMuQ74NPggjlPWOYbkLdc", url: "https://devengo.com/updated")
+      webhooks_service.update(
+        webhook_id: "whk_QMuQ74NPggjlPWOYbkLdc",
+        url: "https://devengo.com/updated",
+        status: "enabled",
+        listened_events: %w[outgoing_payment.created outgoing_payment.confirmed]
+      )
     end
 
     it_behaves_like "builds correct request",
-                    method: :put,
+                    method: :patch,
                     path: "webhooks/whk_QMuQ74NPggjlPWOYbkLdc",
-                    body: { url: "https://devengo.com/updated" }
+                    body: {
+                      url: "https://devengo.com/updated",
+                      status: "enabled",
+                      listened_events: %w[outgoing_payment.created outgoing_payment.confirmed],
+                    }
 
     it_behaves_like "webhook expects",
+                    status: "enabled",
                     listened_events: %w[outgoing_payment.created outgoing_payment.confirmed],
                     url: "https://devengo.com/updated"
   end

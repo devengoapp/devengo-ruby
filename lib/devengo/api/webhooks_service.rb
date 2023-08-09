@@ -22,7 +22,7 @@ module Devengo
       end
 
       def update(webhook_id:, **opts)
-        api_response = client.put(path: "webhooks/#{webhook_id}", **opts)
+        api_response = client.patch(path: "webhooks/#{webhook_id}", **opts)
         Resources::Webhooks::Webhook.from_raw(api_response: api_response, **api_response.body[:webhook])
       end
 
