@@ -21,6 +21,11 @@ module Devengo
         Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
+      def update(account_id:, **opts)
+        api_response = client.patch(path: "accounts/#{account_id}", **opts)
+        Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
+      end
+
       def close(account_id:, **opts)
         client.patch(path: "accounts/#{account_id}/close", **opts)
         nil

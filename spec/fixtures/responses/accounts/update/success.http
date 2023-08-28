@@ -1,0 +1,53 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1499
+X-Ratelimit-Reset: 1675958040
+Etag: W/"3c456a85e68cc323b63ffb8790cfb4ce"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 1eb854ab-48e9-4ebe-92a9-9647b663b333
+X-Runtime: 0.032480
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "account": {
+        "id": "acc_7SZwPFdReAtDu8aNr1T5dE",
+        "status": "created",
+        "created_at": "2023-01-01T12:00:00Z",
+        "name": "My account",
+        "identifiers": [
+            {
+                "type": "iban",
+                "iban": "ES8967130002000000025500"
+            }
+        ],
+        "currency": "EUR",
+        "bank": {
+            "name": "Prepaid Financial Services Limited, S.E",
+            "bic": "PFSSESM1XXX"
+        },
+        "balance": {
+            "total": {
+                "cents": 11000,
+                "currency": "EUR"
+            },
+            "available": {
+                "cents": 10000,
+                "currency": "EUR"
+            }
+        },
+        "metadata": {
+            "example_key": "example_value"
+        },
+         "closed_at": null
+    }
+}
