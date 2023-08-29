@@ -100,6 +100,29 @@ RSpec.describe Devengo::API::AccountsService, :integration, type: :api do
                     metadata: {}
   end
 
+  describe "update account" do
+    include_context "with stub request",
+                    method: :patch,
+                    path: "accounts/acc_7SZwPFdReAtDu8aNr1T5dE",
+                    resource: "accounts/update"
+
+    let!(:account) do # rubocop:disable RSpec/LetSetup
+      accounts_service.update(account_id: "acc_7SZwPFdReAtDu8aNr1T5dE", name: "My new account")
+    end
+
+    it_behaves_like "builds correct request",
+                    method: :patch,
+                    path: "accounts/acc_7SZwPFdReAtDu8aNr1T5dE",
+                    body: { name: "My new account" }
+
+    it_behaves_like "accounts expects",
+                    iban: "ES8967130002000000025500",
+                    available_cents: 10_000,
+                    total_cents: 11_000,
+                    bank: Devengo::Resources::Shared::ThirdParties::Accounts::Bank,
+                    metadata: { example_key: "example_value" }
+  end
+
   describe "close account" do
     include_context "with stub request",
                     method: :patch,
