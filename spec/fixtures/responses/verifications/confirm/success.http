@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: text/plain; charset=utf-8
+X-RateLimit-Limit: 1500
+X-RateLimit-Remaining: 1499
+X-RateLimit-Reset: 1693558140
+ETag: W/"36a9e7f1c95b82ffb99743e0c5c4ce95"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 53b17f9c-d83e-42fc-859f-d25bbe1e82b0
+X-Runtime: 0.290368
+vary: Origin
