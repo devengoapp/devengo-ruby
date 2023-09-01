@@ -15,6 +15,16 @@ module Devengo
           raw_collection: api_response.body[:verifications]
         )
       end
+
+      def create(**opts)
+        api_response = client.post(path: "verifications", **opts)
+        Resources::Verifications::Verification.from_raw(api_response: api_response, **api_response.body[:verification])
+      end
+
+      def confirm(verification_id:, **opts)
+        client.post(path: "verifications/#{verification_id}/confirm", **opts)
+        nil
+      end
     end
   end
 end

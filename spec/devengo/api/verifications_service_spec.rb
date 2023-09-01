@@ -65,4 +65,40 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
       expect(verifications.count).to eq 1
     end
   end
+
+  describe "create verification" do
+    include_context "with stub request",
+                    method: :post,
+                    path: "verifications",
+                    resource: "verifications/create"
+
+    let!(:verification) do # rubocop:disable RSpec/LetSetup
+      verifications_services.create(destination: { iban: "ES2420803225768994261966" }, recipient: "Ana Devenger")
+    end
+
+    it_behaves_like "builds correct request",
+                    method: :post,
+                    path: "verifications"
+
+    it_behaves_like "verification expects"
+  end
+
+  describe "confirm verifications" do
+    include_context "with stub request",
+                    method: :post,
+                    path: "verifications/vrf_4krc1kE2lQL7nE7yT4wBHH/confirm",
+                    resource: "verifications/confirm"
+
+    let!(:verification) do
+      verifications_services.confirm(verification_id: "vrf_4krc1kE2lQL7nE7yT4wBHH", code: "56778")
+    end
+
+    it_behaves_like "builds correct request",
+                    method: :post,
+                    path: "verifications/vrf_4krc1kE2lQL7nE7yT4wBHH/confirm"
+
+    it "return nil" do
+      expect(verification).to be_nil
+    end
+  end
 end
