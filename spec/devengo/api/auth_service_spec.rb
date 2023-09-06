@@ -42,11 +42,12 @@ RSpec.describe Devengo::API::AuthService, :integration, type: :api do
 
     it "member with expected data" do
       expect(member).to be_a Devengo::Resources::Members::Member
-      expect(instance_methods_count(member)).to eq 8
+      expect(instance_methods_count(member)).to eq 9
       expect(member.id).to eq "man_5MjSD4kLS3TszL0kbwPjPN"
       expect(member.name).to eq "Ana"
       expect(member.locale).to eq "es"
-      expect(member.email).to eq "satya@microsoft.com"
+      expect(member.time_zone).to eq "Etc/UTC"
+      expect(member.email).to eq "ana@devengo.com"
       expect(member.job_position).to eq "product"
       expect(member.status).to eq "active"
       expect(member.products).to be_a Devengo::Resources::Members::Products::Collection

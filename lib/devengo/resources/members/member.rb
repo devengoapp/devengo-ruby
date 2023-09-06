@@ -8,6 +8,7 @@ module Devengo
         map :name
         map :email
         map :locale
+        map :time_zone
         map :status
         map :job_position
         map :products

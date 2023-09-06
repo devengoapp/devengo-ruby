@@ -23,7 +23,8 @@ Via: 1.1 vegur
         "id": "man_5MjSD4kLS3TszL0kbwPjPN",
         "name": "Ana",
         "locale": "es",
-        "email": "satya@microsoft.com",
+        "time_zone": "Etc/UTC",
+        "email": "ana@devengo.com",
         "job_position": "product",
         "status": "active",
         "products": [
