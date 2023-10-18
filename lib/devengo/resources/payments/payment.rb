@@ -14,6 +14,7 @@ module Devengo
         map :destination
         map :instant
         map :internal
+        map :retried
         map :eta
         map :created_at
         map :processor
