@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
   shared_examples "payment expects" do
     it "payment with expected data" do
       expect(payment).to be_a Devengo::Resources::Payments::Payment
-      expect(instance_methods_count(payment)).to eq 17
+      expect(instance_methods_count(payment)).to eq 18
       expect(payment.id).to eq "pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(payment.status).to eq "confirmed"
       expect(payment.recipient).to eq "Ana Devenger"
@@ -19,6 +19,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.destination.iban).to eq "ES4131908294777999369566"
       expect(payment.account_id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(payment.instant).to be false
+      expect(payment.retried).to be false
       expect(payment.internal).to be false
       expect(payment.eta).to eq "2023-02-09T11:14:17Z"
       expect(payment.created_at).to eq "2023-02-09T11:14:07Z"

@@ -36,6 +36,7 @@ Via: 1.1 vegur
             "account_id": "acc_7SZwPFdReAtDu8aNr1T5dE",
             "instant": false,
             "internal": false,
+            "retried": false,
             "eta": "2023-02-09T11:14:17Z",
             "created_at": "2023-02-09T11:14:07Z",
             "processor": {
