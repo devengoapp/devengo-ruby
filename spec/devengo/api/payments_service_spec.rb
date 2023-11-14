@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
   shared_examples "payment expects" do
     it "payment with expected data" do
       expect(payment).to be_a Devengo::Resources::Payments::Payment
-      expect(instance_methods_count(payment)).to eq 18
+      expect(instance_methods_count(payment)).to eq 19
       expect(payment.id).to eq "pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(payment.status).to eq "confirmed"
       expect(payment.recipient).to eq "Ana Devenger"
