@@ -20,6 +20,7 @@ module Devengo
         map :error
         map :links
         map :third_party
+        map :fee
         map :metadata
 
         def self.from_raw(api_response:, **attributes)
@@ -30,7 +31,8 @@ module Devengo
                 processor: Shared::Processor.from_raw(**attributes[:processor]),
                 error: Shared::Error.from_raw_nullable(attributes[:error]),
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
-                links: Links.from_raw_nullable(attributes[:links])
+                links: Links.from_raw_nullable(attributes[:links]),
+                fee: Shared::Money.from_raw(**attributes[:fee])
         end
       end
     end

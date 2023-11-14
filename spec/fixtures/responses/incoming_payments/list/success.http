@@ -51,7 +51,11 @@ Via: 1.1 vegur
                     }
                 }
             },
-            "created_at": "2022-01-01T12:00:00Z"
+            "created_at": "2022-01-01T12:00:00Z",
+            "fee": {
+              "cents": 10,
+              "currency": "EUR"
+            }
         }
     ],
     "links": {

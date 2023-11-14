@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
   shared_examples "verification expects" do
     it "verification with expected data" do
       expect(verification).to be_a Devengo::Resources::Verifications::Verification
-      expect(instance_methods_count(verification)).to eq 10
+      expect(instance_methods_count(verification)).to eq 11
       expect(verification.id).to eq "vrf_4krc1kE2lQL7nE7yT4wBHH"
       expect(verification.status).to eq "error"
       expect(verification.company_reference).to be_nil
@@ -27,6 +27,9 @@ RSpec.describe Devengo::API::VerificationsService, :integration, type: :api do
       expect(verification.error.type).to eq "blocked_account"
       expect(verification.error.reason).to eq "AC06"
       expect(verification.metadata).to eq example_key: "example_value"
+      expect(verification.fee).to be_a Devengo::Resources::Shared::Money
+      expect(verification.fee.cents).to eq 10
+      expect(verification.fee.currency).to eq "EUR"
     end
   end
 
