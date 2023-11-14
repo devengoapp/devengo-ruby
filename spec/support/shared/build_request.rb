@@ -3,7 +3,7 @@
 RSpec.shared_examples "builds correct request" do |params|
   let(:default_headers) do
     {
-      "Authorization" => "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.TYzGzbjKUZAZ5JsTYB2MAgbRB0aJ5Xkyk7Pp43nehlI", # rubocop:disable Layout/LineLength
+      "Authorization" => "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", # rubocop:disable Layout/LineLength
       "Content-Type" => "application/json",
     }
   end

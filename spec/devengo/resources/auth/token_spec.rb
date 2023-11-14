@@ -2,7 +2,7 @@
 
 RSpec.describe Devengo::Resources::Auth::Token, :unit, type: :resource do
   subject(:token) do
-    described_class.from_raw(value: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.TYzGzbjKUZAZ5JsTYB2MAgbRB0aJ5Xkyk7Pp43nehlI") # rubocop:disable Layout/LineLength
+    described_class.from_raw(value: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiMTY3NjA3NDkyMyJ9.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx") # rubocop:disable Layout/LineLength
   end
 
   it "token with expected expires_at" do
@@ -25,7 +25,7 @@ RSpec.describe Devengo::Resources::Auth::Token, :unit, type: :resource do
 
   context "when token is invalid" do
     [
-      ["eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiaW52YWxpZF9leHAifQ.uSxV3ytc0rbVQlZ4JEW_Sz7D7xUjMSVyOP_8oZtdV_M"], # rubocop:disable Layout/LineLength
+      ["eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibWFuXzdQMkhhUGFjNms4R1g1T3J6eDA2MEYiLCJ1c2VyX3R5cGUiOiJNYW5hZ2VyIiwiY29tcGFueV9pZCI6bnVsbCwiZXhwIjoiaW52YWxpZF9leHAifQ.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"], # rubocop:disable Layout/LineLength
       ["invalid_token"],
     ].each do |invalid_token|
       it "raise an expected exception" do

@@ -19,6 +19,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.destination.iban).to eq "ES4131908294777999369566"
       expect(payment.account_id).to eq "acc_7SZwPFdReAtDu8aNr1T5dE"
       expect(payment.instant).to be false
+      expect(payment.retried).to be false
       expect(payment.internal).to be false
       expect(payment.eta).to eq "2023-02-09T11:14:17Z"
       expect(payment.created_at).to eq "2023-02-09T11:14:07Z"
