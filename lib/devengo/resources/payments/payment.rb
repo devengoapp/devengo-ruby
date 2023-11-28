@@ -33,7 +33,7 @@ module Devengo
                 error: Shared::Error.from_raw_nullable(attributes[:error]),
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
                 links: Links.from_raw_nullable(attributes[:links]),
-                fee: Shared::Money.from_raw(**attributes[:fee])
+                fee: Shared::Money.from_raw_nullable(attributes[:fee])
         end
       end
     end

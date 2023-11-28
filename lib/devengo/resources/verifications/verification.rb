@@ -21,7 +21,7 @@ module Devengo
                 **attributes,
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
                 error: Shared::Error.from_raw_nullable(attributes[:error]),
-                fee: Shared::Money.from_raw(**attributes[:fee])
+                fee: Shared::Money.from_raw_nullable(attributes[:fee])
         end
       end
     end
