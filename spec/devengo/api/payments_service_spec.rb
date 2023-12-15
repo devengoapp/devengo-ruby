@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
   shared_examples "payment expects" do
     it "payment with expected data" do
       expect(payment).to be_a Devengo::Resources::Payments::Payment
-      expect(instance_methods_count(payment)).to eq 18
+      expect(instance_methods_count(payment)).to eq 19
       expect(payment.id).to eq "pyo_4JgnTOvdXQWn81NK1bOhIY"
       expect(payment.status).to eq "confirmed"
       expect(payment.recipient).to eq "Ana Devenger"
@@ -39,6 +39,9 @@ RSpec.describe Devengo::API::PaymentsService, :integration, type: :api do
       expect(payment.third_party.account.bank.name).to eq "Banco de Sabadell, S.A."
       expect(payment.third_party.account.bank.bic).to eq "BSABESBBXXX"
       expect(payment.metadata).to eq example_key: "example_value"
+      expect(payment.fee).to be_a Devengo::Resources::Shared::Money
+      expect(payment.fee.cents).to eq 10
+      expect(payment.fee.currency).to eq "EUR"
     end
   end
 
