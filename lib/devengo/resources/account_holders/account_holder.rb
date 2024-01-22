@@ -13,7 +13,7 @@ module Devengo
         map :closed_at
         map :company_reference
         map :slug
-        map :curreny
+        map :currency
         map :metadata
 
         def self.from_raw(api_response:, **attributes)
