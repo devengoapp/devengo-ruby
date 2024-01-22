@@ -6,10 +6,13 @@ module Devengo
       class AccountHolder < Shared::BaseResponse
         map :id
         map :commercial_name
+        map :legal_name
+        map :taxid
+        map :status
         map :company_reference
+        map :slug
+        map :curreny
         map :metadata
-        map :created_at
-        map :closed_at
 
         def self.from_raw(api_response:, **attributes)
           super api_response: api_response, **attributes
