@@ -9,6 +9,8 @@ module Devengo
         map :legal_name
         map :taxid
         map :status
+        map :created_at
+        map :closed_at
         map :company_reference
         map :slug
         map :curreny
