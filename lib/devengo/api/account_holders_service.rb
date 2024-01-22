@@ -5,7 +5,7 @@ module Devengo
     class AccountHoldersService < Service
       def find(account_holder_id:, **opts)
         api_response = client.get(path: "account_holders/#{account_holder_id}", **opts)
-        Resources::AccountHolder.from_raw(
+        Resources::AccountHolders::AccountHolder.from_raw(
           api_response: api_response,
           **api_response.body[:account_holder]
         )
