@@ -21,7 +21,10 @@ module Devengo
 
       def create(**opts)
         api_response = client.post(path: "account_holders", **opts)
-        Resources::AccountHolders::AccountHolder.from_raw(api_response: api_response, **api_response.body[:account_holder])
+        Resources::AccountHolders::AccountHolder.from_raw(
+          api_response: api_response,
+          **api_response.body[:account_holder]
+        )
       end
 
       def close(account_holder_id:, **opts)
