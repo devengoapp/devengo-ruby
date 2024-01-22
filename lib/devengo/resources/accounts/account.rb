@@ -5,6 +5,7 @@ module Devengo
     module Accounts
       class Account < Shared::BaseResponse
         map :id
+        map :account_holder_id
         map :bank
         map :status
         map :name
