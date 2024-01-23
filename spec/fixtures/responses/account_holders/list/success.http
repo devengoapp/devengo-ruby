@@ -1,0 +1,56 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+X-Ratelimit-Limit: 1500
+X-Ratelimit-Remaining: 1499
+X-Ratelimit-Reset: 1675957920
+Etag: W/"4c95a420ffa0bfdf75d3cedd3ee131f1"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 930d21a6-fd00-4b89-a81e-66d2763faa40
+X-Runtime: 0.109951
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: Origin
+Via: 1.1 vegur
+
+{
+    "account_holders": [
+        {
+            "id": "ach_5hAMRnqljBGXuvhfz0uRip",
+            "status": "created",
+            "created_at": "2023-01-01T12:00:00Z",
+            "commercial_name": "My account holder",
+            "legal_name": "My account holder SL",
+            "currency": "EUR",
+            "metadata": {
+                "example_key": "example_value"
+            },
+            "closed_at": null
+        },
+        {
+            "id": "ach_6hAMRnqljAFXuvhfz0uSac",
+            "status": "closed",
+            "created_at": "2023-02-01T12:00:00Z",
+            "commercial_name": "My account holder 2",
+            "legal_name": "My account holder 2 SL",
+            "currency": "EUR",
+            "metadata": {},
+            "closed_at": "2023-02-15T12:00:00Z"
+        }
+    ],
+    "links": {
+        "self": "https://api.sandbox.devengo.com/v1/account_holders?page=1&page_size=100",
+        "first": "https://api.sandbox.devengo.com/v1/account_holders?page=1&page_size=100",
+        "last": "https://api.sandbox.devengo.com/v1/account_holders?page=1&page_size=100"
+    },
+    "meta": {
+        "pagination": {
+            "total_items": 2
+        }
+    }
+}

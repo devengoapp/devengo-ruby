@@ -11,6 +11,10 @@ module Devengo
         @services[:accounts] ||= AccountsService.new(self)
       end
 
+      def account_holders
+        @services[:account_holders] ||= AccountHoldersService.new(self)
+      end
+
       def incoming_payments
         @services[:incoming_payments] ||= IncomingPaymentsService.new(self)
       end
@@ -40,6 +44,7 @@ end
 
 require_relative "service"
 
+require_relative "account_holders_service"
 require_relative "accounts_service"
 require_relative "auth_service"
 require_relative "incoming_payments_service"
