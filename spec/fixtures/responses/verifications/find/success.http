@@ -47,6 +47,10 @@ Via: 1.1 vegur
             "type": "blocked_account",
             "reason": "AC06"
         },
+        "fee": {
+          "cents": 10,
+          "currency": "EUR"
+        },
         "metadata": {
             "example_key": "example_value"
         }

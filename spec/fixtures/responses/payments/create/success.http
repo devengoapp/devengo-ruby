@@ -58,6 +58,10 @@ Via: 1.1 vegur
                 }
             }
         },
+        "fee": {
+          "cents": 10,
+          "currency": "EUR"
+        },
         "metadata": {
             "example_key": "example_value"
         }
