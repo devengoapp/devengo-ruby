@@ -26,6 +26,6 @@ Vary: Origin
         "metadata": {
             "example_key": "example_value"
         },
-        "closed_at": null
+        "archived_at": null
     }
 }

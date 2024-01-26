@@ -30,17 +30,17 @@ Via: 1.1 vegur
             "metadata": {
                 "example_key": "example_value"
             },
-            "closed_at": null
+            "archived_at": null
         },
         {
             "id": "ach_6hAMRnqljAFXuvhfz0uSac",
-            "status": "closed",
+            "status": "archived",
             "created_at": "2023-02-01T12:00:00Z",
             "commercial_name": "My account holder 2",
             "legal_name": "My account holder 2 SL",
             "currency": "EUR",
             "metadata": {},
-            "closed_at": "2023-02-15T12:00:00Z"
+            "archived_at": "2023-02-15T12:00:00Z"
         }
     ],
     "links": {

@@ -10,7 +10,7 @@ module Devengo
         map :taxid
         map :status
         map :created_at
-        map :closed_at
+        map :archived_at
         map :company_reference
         map :slug
         map :currency

@@ -27,8 +27,8 @@ module Devengo
         )
       end
 
-      def close(account_holder_id:, **opts)
-        client.patch(path: "account_holders/#{account_holder_id}/close", **opts)
+      def archive(account_holder_id:, **opts)
+        client.patch(path: "account_holders/#{account_holder_id}/archive", **opts)
         nil
       end
     end
