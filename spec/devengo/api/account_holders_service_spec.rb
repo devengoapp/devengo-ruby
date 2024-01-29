@@ -14,7 +14,7 @@ RSpec.describe Devengo::API::AccountHoldersService, :integration, type: :api do
       expect(account_holder.currency).to eq "EUR"
       expect(account_holder.metadata).to eq parameters[:metadata]
       expect(account_holder.created_at).to eq "2023-01-01T12:00:00Z"
-      expect(account_holder.closed_at).to be_nil
+      expect(account_holder.archived_at).to be_nil
     end
   end
 
@@ -81,17 +81,17 @@ RSpec.describe Devengo::API::AccountHoldersService, :integration, type: :api do
                     metadata: { example_key: "example_value" }
   end
 
-  describe "close account holder" do
+  describe "archive account holder" do
     include_context "with stub request",
                     method: :patch,
-                    path: "account_holders/ach_5hAMRnqljBGXuvhfz0uRip/close",
-                    resource: "account_holders/close"
+                    path: "account_holders/ach_5hAMRnqljBGXuvhfz0uRip/archive",
+                    resource: "account_holders/archive"
 
-    let!(:response) { account_holders_service.close(account_holder_id: "ach_5hAMRnqljBGXuvhfz0uRip") }
+    let!(:response) { account_holders_service.archive(account_holder_id: "ach_5hAMRnqljBGXuvhfz0uRip") }
 
     it_behaves_like "builds correct request",
                     method: :patch,
-                    path: "account_holders/ach_5hAMRnqljBGXuvhfz0uRip/close"
+                    path: "account_holders/ach_5hAMRnqljBGXuvhfz0uRip/archive"
 
     it "return nil" do
       expect(response).to be_nil
