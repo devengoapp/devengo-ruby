@@ -39,6 +39,7 @@ require_relative "base_response"
 require_relative "base_response_collection"
 
 require_relative "../account_holders/account_holder"
+require_relative "../account_holders/address"
 require_relative "../account_holders/collection"
 require_relative "../accounts/account"
 require_relative "../accounts/balance"

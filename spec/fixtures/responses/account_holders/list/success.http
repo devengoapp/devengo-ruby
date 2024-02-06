@@ -30,6 +30,13 @@ Via: 1.1 vegur
             "metadata": {
                 "example_key": "example_value"
             },
+            "address": {
+                "address": "Calle Barquillo, 40",
+                "postal_code": "28004",
+                "city": "Madrid",
+                "province": "Madrid",
+                "country": "es"
+            },
             "archived_at": null
         },
         {
@@ -40,6 +47,13 @@ Via: 1.1 vegur
             "legal_name": "My account holder 2 SL",
             "currency": "EUR",
             "metadata": {},
+            "address": {
+                "address": "Calle Barquillo, 40",
+                "postal_code": "28004",
+                "city": "Madrid",
+                "province": "Madrid",
+                "country": "es"
+            },
             "archived_at": "2023-02-15T12:00:00Z"
         }
     ],
