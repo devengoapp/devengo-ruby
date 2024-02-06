@@ -6,7 +6,7 @@ RSpec.describe Devengo::API::AccountHoldersService, :integration, type: :api do
   shared_examples "account holders expects" do |parameters|
     it "account holder with expected data" do
       expect(account_holder).to be_a Devengo::Resources::AccountHolders::AccountHolder
-      expect(instance_methods_count(account_holder)).to eq 11
+      expect(instance_methods_count(account_holder)).to eq 12
       expect(account_holder.id).to eq "ach_5hAMRnqljBGXuvhfz0uRip"
       expect(account_holder.status).to eq "created"
       expect(account_holder.commercial_name).to eq "My account holder"
@@ -14,6 +14,13 @@ RSpec.describe Devengo::API::AccountHoldersService, :integration, type: :api do
       expect(account_holder.currency).to eq "EUR"
       expect(account_holder.metadata).to eq parameters[:metadata]
       expect(account_holder.created_at).to eq "2023-01-01T12:00:00Z"
+      expect(account_holder.address).to be_a Devengo::Resources::AccountHolders::Address
+      expect(instance_methods_count(account_holder.address)).to eq 5
+      expect(account_holder.address.address).to eq "Calle Barquillo, 40"
+      expect(account_holder.address.postal_code).to eq "28004"
+      expect(account_holder.address.city).to eq "Madrid"
+      expect(account_holder.address.province).to eq "Madrid"
+      expect(account_holder.address.country).to eq "es"
       expect(account_holder.archived_at).to be_nil
     end
   end

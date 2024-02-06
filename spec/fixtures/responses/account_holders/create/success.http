@@ -26,6 +26,13 @@ Vary: Origin
         "metadata": {
             "example_key": "example_value"
         },
+        "address": {
+            "address": "Calle Barquillo, 40",
+            "postal_code": "28004",
+            "city": "Madrid",
+            "province": "Madrid",
+            "country": "es"
+        },
         "archived_at": null
     }
 }
