@@ -13,7 +13,6 @@ module Devengo
         map :archived_at
         map :company_reference
         map :slug
-        map :currency
         map :metadata
         map :address
 
