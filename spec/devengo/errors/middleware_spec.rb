@@ -60,6 +60,18 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
         end
       end
     end
+
+    context "when body is not a hash" do
+      let(:body) { "1" }
+      let(:status) { 503 }
+
+      it "raise exception with expected data" do
+        expect { middleware.send(:on_complete, env) }.to raise_error do |exception_raised|
+          expect(exception_raised).to be_a Devengo::Errors::Server
+          expect(exception_raised.message).to eq body
+        end
+      end
+    end
   end
 
   context "with any HTTP error code" do

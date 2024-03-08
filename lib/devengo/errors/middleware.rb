@@ -43,7 +43,8 @@ module Devengo
       end
 
       private def http_error_params
-        { api_response: @env.response, message: @env.body[:exception] || @env.body }
+        message = @env.body.is_a?(Hash) && @env.body.key?(:exception) ? @env.body[:exception] : @env.body
+        { api_response: @env.response, message: message }
       end
     end
   end
