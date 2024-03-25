@@ -42,6 +42,20 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
         end
       end
     end
+
+    context "when body is not a hash" do
+      let(:body) { "1" }
+      let(:status) { 404 }
+
+      it "raise exception with expected data" do
+        expect { middleware.send(:on_complete, env) }.to raise_error do |exception_raised|
+          expect(exception_raised).to be_a Devengo::Errors::NotFound
+          expect(exception_raised.message).to eq body
+          expect(exception_raised.code).to be_nil
+          expect(exception_raised.type).to be_nil
+        end
+      end
+    end
   end
 
   context "when is server error HTTP code" do
