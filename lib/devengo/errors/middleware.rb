@@ -39,7 +39,8 @@ module Devengo
       end
 
       private def client_error_params
-        { api_response: @env.response, client_error: @env.body[:error].to_h }
+        client_error = @env.body.is_a?(Hash) && @env.body.key?(:error) ? @env.body[:error].to_h : { message: @env.body }
+        { api_response: @env.response, client_error: client_error }
       end
 
       private def http_error_params
