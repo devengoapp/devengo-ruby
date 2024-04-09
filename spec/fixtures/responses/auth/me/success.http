@@ -27,6 +27,7 @@ Via: 1.1 vegur
         "email": "ana@devengo.com",
         "job_position": "product",
         "status": "active",
+        "product_newsletter": false,
         "products": [
             {
                 "slug": "payments",
