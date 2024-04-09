@@ -55,7 +55,7 @@ RSpec.describe Devengo::API::AuthService, :integration, type: :api do
       expect(member.products.first).to be_a Devengo::Resources::Members::Products::Product
       expect(member.products.first.slug).to eq "payments"
       expect(member.products.first.name).to eq "Payments"
-      expect(member.product_newsletter).to eq false
+      expect(member.product_newsletter).to be false
     end
   end
 end
