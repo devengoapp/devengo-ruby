@@ -13,6 +13,7 @@ module Devengo
         map :job_position
         map :products
         map :referrer_id
+        map :product_newsletter
 
         def self.from_raw(api_response:, **attributes)
           super api_response: api_response,

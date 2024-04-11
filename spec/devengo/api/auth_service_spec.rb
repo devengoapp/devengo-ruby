@@ -42,7 +42,7 @@ RSpec.describe Devengo::API::AuthService, :integration, type: :api do
 
     it "member with expected data" do
       expect(member).to be_a Devengo::Resources::Members::Member
-      expect(instance_methods_count(member)).to eq 9
+      expect(instance_methods_count(member)).to eq 10
       expect(member.id).to eq "man_5MjSD4kLS3TszL0kbwPjPN"
       expect(member.name).to eq "Ana"
       expect(member.locale).to eq "es"
