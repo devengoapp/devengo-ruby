@@ -7,7 +7,13 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
   let(:api_response) { double }
   let(:body) do
     {
-      error: { message: "Resource not found", code: "account_not_found", type: "not_found_error" },
+      error: {
+        message: "Resource not found",
+        code: "account_not_found",
+        type: "not_found_error",
+        title: "Resource not found",
+        detail: "A resource was not found: Account",
+      },
       exception: "Sample message",
     }
   end
@@ -38,6 +44,8 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
             expect(exception_raised.message).to eq "Resource not found"
             expect(exception_raised.code).to eq "account_not_found"
             expect(exception_raised.type).to eq "not_found_error"
+            expect(exception_raised.title).to eq "Resource not found"
+            expect(exception_raised.detail).to eq "A resource was not found: Account"
           end
         end
       end
@@ -53,6 +61,8 @@ RSpec.describe Devengo::Errors::Middleware, :unit, type: :error do
           expect(exception_raised.message).to eq body
           expect(exception_raised.code).to be_nil
           expect(exception_raised.type).to be_nil
+          expect(exception_raised.title).to be_nil
+          expect(exception_raised.detail).to be_nil
         end
       end
     end
