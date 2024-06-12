@@ -22,7 +22,7 @@ module Devengo
           super api_response: api_response,
                 **attributes,
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
-                balance: Shared::Money.from_raw(**attributes[:balance]),
+                balance: Shared::Money.from_raw_nullable(**attributes[:balance]),
                 amount: Shared::Money.from_raw(**attributes[:amount]),
                 entity: Entity.from_raw_nullable(attributes[:entity])
         end
