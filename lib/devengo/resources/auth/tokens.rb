@@ -4,7 +4,7 @@ module Devengo
   module Resources
     module Auth
       class Tokens < Shared::BaseResponse
-        map :token, :access_token
+        map :token
         map :refresh_token
 
         def self.from_raw(api_response:, **attributes)
