@@ -86,7 +86,7 @@ module Devengo
     end
 
     private def login!
-      @token = auth.login(email: @email, password: @password).access_token
+      @token = auth.login(email: @email, password: @password).token
     end
 
     private def init_token(token)
