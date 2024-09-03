@@ -80,7 +80,7 @@ module Devengo
     end
 
     private def auth_token
-      login! if @token.nil? || @token.expired?
+      login! if (@token.nil? || @token.expired?) && (@email && @password)
 
       @token.value
     end
