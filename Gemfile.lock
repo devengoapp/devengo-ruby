@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devengo-api (0.0.1)
+    devengo-api (0.0.2)
       faraday (~> 2.7)
       jwt (~> 2.7)
 
@@ -118,6 +118,7 @@ GEM
 PLATFORMS
   arm64-darwin-20
   arm64-darwin-22
+  arm64-darwin-25
   x86_64-darwin-20
   x86_64-linux
 
