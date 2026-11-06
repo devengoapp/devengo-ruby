@@ -6,7 +6,7 @@ module Devengo
       attr_reader :api_response
 
       def initialize(api_response:, message:)
-        super message: message
+        super(message: message)
 
         @api_response = api_response
       end

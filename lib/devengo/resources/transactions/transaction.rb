@@ -19,12 +19,12 @@ module Devengo
         map :third_party
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response,
+          super(api_response: api_response,
                 **attributes,
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
                 balance: Shared::Money.from_raw_nullable(attributes[:balance]),
                 amount: Shared::Money.from_raw(**attributes[:amount]),
-                entity: Entity.from_raw_nullable(attributes[:entity])
+                entity: Entity.from_raw_nullable(attributes[:entity]))
         end
       end
     end

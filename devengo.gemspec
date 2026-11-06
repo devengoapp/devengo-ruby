@@ -6,11 +6,11 @@ Gem::Specification.new do |spec|
   spec.name    = "devengo-api"
   spec.version = Devengo::VERSION
   spec.authors = ["Ignacio Ortiz Cobo"]
-  spec.email   = ["nacho@devengo.com"]
+  spec.email   = ["dev@devengo.com"]
 
   spec.summary               = "Ruby client for Devengo Finance API."
   spec.description           = "Ruby client for Devengo Finance API."
-  spec.required_ruby_version = ">= 2.7.0"
+  spec.required_ruby_version = ">= 3.2"
 
   spec.license = "MIT"
 
@@ -25,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.files            = Dir["lib/**/*"]
   spec.require_paths    = ["lib"]
 
-  spec.add_dependency "faraday", "~> 2.7"
-  spec.add_dependency "jwt", "~> 2.7"
+  spec.add_dependency "faraday", ">= 2.14.3", "< 3"
+  spec.add_dependency "jwt", ">= 2.8", "< 4"
 end

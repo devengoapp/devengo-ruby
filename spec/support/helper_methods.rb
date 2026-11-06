@@ -2,12 +2,12 @@
 
 module Devengo
   module HelperMethods
-    def initialize_client(**opts)
+    def initialize_client(**)
       Devengo::Client.new(
         email: "email@devengo.com",
         password: "example_password",
         logger_enabled: false,
-        **opts
+        **
       )
     end
 

@@ -7,7 +7,7 @@ module Devengo
         module Identifiers
           class Collection < BaseCollection
             def self.from_raw(identifiers)
-              super items: identifiers.map { |identifier| raw_identifier_parser(identifier) }
+              super(items: identifiers.map { |identifier| raw_identifier_parser(identifier) })
             end
 
             private_class_method def self.raw_identifier_parser(identifier)

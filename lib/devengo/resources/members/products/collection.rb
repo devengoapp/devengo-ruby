@@ -6,7 +6,7 @@ module Devengo
       module Products
         class Collection < Shared::BaseCollection
           def self.from_raw(products)
-            super items: products.map { |product| Product.from_raw(**product) }
+            super(items: products.map { |product| Product.from_raw(**product) })
           end
 
           def self.from_raw_nullable(attributes)

@@ -12,7 +12,7 @@ module Devengo
         map :secret
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response, **attributes, secret: attributes[:secret]
+          super(api_response: api_response, **attributes, secret: attributes[:secret])
         end
       end
     end

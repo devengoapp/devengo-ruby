@@ -21,7 +21,7 @@ module Devengo
       @token = init_token(options[:token])
       @email = options[:email] || ENV.fetch("DEVENGO_USER", nil)
       @password = options[:password] || ENV.fetch("DEVENGO_PASSWORD", nil)
-      @logger_enabled = options[:logger_enabled].nil? ? true : options[:logger_enabled]
+      @logger_enabled = options[:logger_enabled].nil? || options[:logger_enabled]
       @services = {}
     end
 
@@ -80,7 +80,7 @@ module Devengo
     end
 
     private def auth_token
-      login! if (@token.nil? || @token.expired?) && (@email && @password)
+      login! if (@token.nil? || @token.expired?) && @email && @password
 
       @token.value
     end

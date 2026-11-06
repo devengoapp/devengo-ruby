@@ -7,7 +7,7 @@ require "webmock/rspec"
 WebMock.disable_net_connect!
 
 RSPEC_ROOT = File.expand_path(__dir__) unless defined?(RSPEC_ROOT)
-Dir[File.join(RSPEC_ROOT, "support/**/*.rb")].sort.each { |f| require f }
+Dir[File.join(RSPEC_ROOT, "support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   # rspec-mocks config goes here. You can use an alternate test double

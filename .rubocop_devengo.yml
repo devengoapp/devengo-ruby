@@ -3,7 +3,7 @@ AllCops:
   DisplayCopNames: true
   NewCops: enable
   SuggestExtensions: true
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.2
 Gemspec/DependencyVersion:
   Enabled: true
 Layout/FirstArrayElementIndentation:
@@ -82,8 +82,8 @@ Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
-require:
-  - test_prof/rubocop
+plugins:
+  - test-prof
   - rubocop-rspec
   - rubocop-performance
   - rubocop-rake

@@ -9,9 +9,9 @@ module Devengo
           map :api_response
 
           def self.from_raw(api_response:, raw_collection: [])
-            super api_response: api_response,
+            super(api_response: api_response,
                   raw_collection: raw_collection,
-                  items: raw_collection
+                  items: raw_collection)
           end
         end
       end
