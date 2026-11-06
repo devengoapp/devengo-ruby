@@ -3,13 +3,16 @@ name: ci
 "on":
   pull_request:
   push:
+    # Release tags run CI through release.yml.
+    branches: ["**"]
+  workflow_call:
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   build:
     name: Test build (Ruby ${{ matrix.ruby-version }})
-    needs: [MarkdownLint, YamlLint, Rubocop]
+    needs: [MarkdownLint, YamlLint, Rubocop, Zizmor]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -58,6 +61,19 @@ jobs:
         uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c  # v3.1.1
         with:
           strict: true
+  Zizmor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Run zizmor
+        # yamllint disable-line rule:line-length
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd  # v0.8.1
+        with:
+          advanced-security: false
   Rubocop:
     runs-on: ubuntu-latest
     steps:
