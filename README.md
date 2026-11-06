@@ -37,7 +37,7 @@ git tag vx.x.x main
 git push origin vx.x.x
 ```
 
-The tagging will trigger the GitHub action defined in `release.yml`, pushing the gem to [rubygems.org](https://rubygems.org).
+The tag triggers `release.yml`: it runs CI, checks the tag is on `main` and publishes the gem to [rubygems.org](https://rubygems.org) through [trusted publishing](https://guides.rubygems.org/trusted-publishing/), with no API key.
 
 ## Testing
 
