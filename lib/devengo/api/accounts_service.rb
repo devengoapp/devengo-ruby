@@ -3,31 +3,31 @@
 module Devengo
   module API
     class AccountsService < Service
-      def find(account_id:, **opts)
-        api_response = client.get(path: "accounts/#{account_id}", **opts)
+      def find(account_id:, **)
+        api_response = client.get(path: "accounts/#{account_id}", **)
         Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
-      def list(**opts)
-        api_response = client.get(path: "accounts", **opts)
+      def list(**)
+        api_response = client.get(path: "accounts", **)
         Resources::Accounts::Collection.from_raw(
           api_response: api_response,
           raw_collection: api_response.body[:accounts]
         )
       end
 
-      def create(**opts)
-        api_response = client.post(path: "accounts", **opts)
+      def create(**)
+        api_response = client.post(path: "accounts", **)
         Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
-      def update(account_id:, **opts)
-        api_response = client.patch(path: "accounts/#{account_id}", **opts)
+      def update(account_id:, **)
+        api_response = client.patch(path: "accounts/#{account_id}", **)
         Resources::Accounts::Account.from_raw(api_response: api_response, **api_response.body[:account])
       end
 
-      def close(account_id:, **opts)
-        client.patch(path: "accounts/#{account_id}/close", **opts)
+      def close(account_id:, **)
+        client.patch(path: "accounts/#{account_id}/close", **)
         nil
       end
     end

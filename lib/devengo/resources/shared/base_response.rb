@@ -7,7 +7,7 @@ module Devengo
         map :api_response
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response, **attributes
+          super
         end
       end
     end

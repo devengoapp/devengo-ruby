@@ -8,8 +8,8 @@ module Devengo
 
         map :items
 
-        def each(&block)
-          @items.each(&block)
+        def each(&)
+          @items.each(&)
         end
 
         def size

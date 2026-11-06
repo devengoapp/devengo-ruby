@@ -10,11 +10,11 @@ module Devengo
         map :meta
 
         def self.from_raw(api_response:, raw_collection: [])
-          super api_response: api_response,
+          super(api_response: api_response,
                 raw_collection: raw_collection,
                 items: parse_raw_collection(raw_collection),
                 pagination: init_pagination(api_response),
-                meta: api_response.body[:meta]
+                meta: api_response.body[:meta])
         end
 
         private_class_method def self.parse_raw_collection(raw_collection)

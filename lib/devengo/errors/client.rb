@@ -6,7 +6,7 @@ module Devengo
       attr_reader :code, :type, :title, :detail
 
       def initialize(api_response:, client_error:)
-        super message: client_error[:message], api_response: api_response
+        super(message: client_error[:message], api_response: api_response)
 
         @code = client_error[:code]
         @type = client_error[:type]

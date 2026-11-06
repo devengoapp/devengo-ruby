@@ -18,12 +18,12 @@ module Devengo
         map :fee
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response,
+          super(api_response: api_response,
                 **attributes,
                 amount: Shared::Money.from_raw(**attributes[:amount]),
                 third_party: Shared::ThirdParties::ThirdParty.from_raw(**attributes[:third_party]),
                 processor: Shared::Processor.from_raw(**attributes[:processor]),
-                fee: Shared::Money.from_raw_nullable(attributes[:fee])
+                fee: Shared::Money.from_raw_nullable(attributes[:fee]))
         end
       end
     end

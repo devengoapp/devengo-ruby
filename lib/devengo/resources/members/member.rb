@@ -16,9 +16,9 @@ module Devengo
         map :product_newsletter
 
         def self.from_raw(api_response:, **attributes)
-          super api_response: api_response,
+          super(api_response: api_response,
                 **attributes,
-                products: Products::Collection.from_raw_nullable(attributes[:products])
+                products: Products::Collection.from_raw_nullable(attributes[:products]))
         end
       end
     end

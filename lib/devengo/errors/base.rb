@@ -4,7 +4,7 @@ module Devengo
   module Errors
     class Base < StandardError
       def initialize(message:)
-        super message
+        super(message)
       end
     end
   end
