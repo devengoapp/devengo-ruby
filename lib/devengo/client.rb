@@ -58,11 +58,15 @@ module Devengo
       builder.response :json, content_type: /\bjson$/, preserve_raw: true, parser_options: { symbolize_names: true }
       builder.proxy = @proxy if @proxy
       if @logger_enabled
-        builder.response :logger, nil, { headers: true, bodies: true } do |logger|
-          logger.filter(/("password":)"(\w+)"/, '\1[FILTERED]')
-        end
+        builder.response(:logger, nil, { headers: true, bodies: true }) { |logger| filter_secrets(logger) }
       end
       builder.adapter :net_http
+    end
+
+    private def filter_secrets(logger)
+      logger.filter(/("password":\s*)"(?:[^"\\]|\\.)*"/, '\1[FILTERED]')
+      logger.filter(/("(?:refresh_)?token":\s*)"[^"]*"/, '\1[FILTERED]')
+      logger.filter(/(Authorization: ).*$/, '\1[FILTERED]')
     end
 
     private def parse_opts(method, opts)
